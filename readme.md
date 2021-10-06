@@ -11,6 +11,13 @@ Install flask with pip (or conda) in a virtual environment.
 `pip install flask` or `conda install flask`
 
 ### Quick Start
+
+Script
+```
+./run.sh
+```
+
+Manually
 ```
 export FLASK_ENV=development
 export FLASK_APP=main
