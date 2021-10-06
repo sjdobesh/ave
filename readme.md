@@ -62,3 +62,7 @@ pip install Flask
 
 #### Manually
 Run each code line from the script associated with your terminal.
+If your terminal scripting language is not supported you can do the following.
+Create two environment variables, `FLASK_ENV` and `FLASK_APP`.
+Set `FLASK_ENV` to `development` and `FLASK_APP` to `main`. 
+Then start the website locally with `flask run`.
