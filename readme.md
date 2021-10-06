@@ -1,5 +1,12 @@
 # Accessible Video Editor
+## Jump to
+* [Project Info](#project-info "Goto project-info")
+* [Installation Info](#installation-info "Goto installation-info")
+
 ## Project Info
+
+
+## Installation Info
 ### Dependencies
 Requires Python 3 and Flask
 Install flask with pip (or conda) in a virtual environment.
