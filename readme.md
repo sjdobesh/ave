@@ -12,9 +12,19 @@ Install flask with pip (or conda) in a virtual environment.
 
 ### Quick Start
 
-Script
+Bash Script
 ```
 ./run.sh
+```
+
+CMD Script
+```
+./run.cmd
+```
+
+PowerShell Script
+```
+./run.ps1
 ```
 
 Manually
