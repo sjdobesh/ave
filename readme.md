@@ -4,6 +4,15 @@
 * [Installation Info](#installation-info "Goto installation-info")
 
 ## Project Info
+### Course and Team
+#### Course
+CSCI 497T with Professor Elglaly
+#### Team Members
+- Robin Balatbat
+- Ian Cullum
+- Sam Dobesh
+- Nick Harang
+- Kale Kurtzhall
 
 
 ## Installation Info
@@ -44,11 +53,3 @@ pip install Flask
 
 #### Manually
 Run each code line from the script associated with your terminal.
-
-### Course and Students
-CSCI 497T 
-- Robin Balatbat
-- Ian Cullum
-- Sam Dobesh
-- Nick Harang
-- Kale Kurtzhall
