@@ -21,11 +21,20 @@ Requires Python 3 and Flask
 Install flask with pip (or conda) in a virtual environment.
 
 #### Linux
-`python3 -m venv env` or `conda create --name env`
 
-`source env/bin/activate` or `conda activate env`
+##### Pip
+```
+python3 -m venv env
+source env/bin/activate
+pip install flask
+```
 
-`pip install flask` or `conda install flask`
+##### Conda
+```
+conda create --name env
+conda activate env
+conda install flask
+```
 
 #### Windows PowerShell
 ```
