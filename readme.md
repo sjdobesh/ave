@@ -4,7 +4,7 @@
 Requires Python 3 and Flask
 Install flask with pip (or conda) in a virtual environment.
 
-`pip -m venv env` or `conda create --name env`
+`python3 -m venv env` or `conda create --name env`
 
 `source env/bin/activate` or `conda activate env`
 
