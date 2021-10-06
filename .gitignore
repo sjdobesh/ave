@@ -5,3 +5,4 @@ __pycache__
 # virtual environments
 venv/
 env/
+.vscode/settings.json
