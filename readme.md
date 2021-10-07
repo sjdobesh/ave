@@ -17,7 +17,8 @@ CSCI 497T with Professor Elglaly
 
 ## Installation Info
 ### Dependencies
-Requires Python 3 and Flask
+Requires Python 3 and Flask.
+
 Install flask with pip (or conda) in a virtual environment.
 
 #### Linux
