@@ -54,7 +54,7 @@ ul[role="menubar"] [role="menuitem"], ul[role="menubar"] [role="menuitemcheckbox
 
 ul[role="menubar"] ul li[role="menuitem"], ul[role="menubar"] ul li[role="menuitemcheckbox"], ul[role="menubar"] ul li[role="menuitemradio"], ul[role="menubar"] ul li[role="separator"] {
     padding-left: 1.5em;
-    width: 8.5em;
+    width: 9em;
 }
 
 ul[role="menubar"] [role="separator"] {

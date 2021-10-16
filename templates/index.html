@@ -23,101 +23,122 @@ The ul menubars are (or are based on) the following w3 code: https://www.w3.org/
 </head>
 
 <body id="wrapper">
-    <div id="">
+    <header>
         <h1>The one and only H1 on this page :&rpar;</h1>
-
-        <h2>Accessibility Options Menu</h2>
-        <ul id="menubar1" role="menubar" aria-label="Accessibility options">
-            <li role="none">
-                <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#">
-                    Color Scheme
-                </a>
-                <ul role="group" aria-label="Color Scheme" data-option="color-scheme">
-                    <li role="menuitemradio" aria-checked="true">
-                        Light mode
-                    </li>
-                    <li role="menuitemradio" aria-checked="false">
-                        Light mode (Gentle)
-                    </li>
-                    <li role="menuitemradio" aria-checked="false">
-                        Dark mode
-                    </li>
-                    <li role="menuitemradio" aria-checked="false">
-                        Dark mode (Gentle)
-                    </li>
-                </ul>
-            </li>
-            <li role="none">
-                <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#">
-                    Font
-                </a>
-                <ul role="menu" data-option="font-family" aria-label="Font">
-                    <li role="menuitemradio" aria-checked="true">
-                        Sans-serif
-                    </li>
-                    <li role="menuitemradio" aria-checked="false">
-                        Serif
-                    </li>
-                    <li role="menuitemradio" aria-checked="false">
-                        Monospace
-                    </li>
-                    <li role="menuitemradio" aria-checked="false">
-                        OpenDyslexic
-                    </li>
-                    <li role="separator"></li>
-                    <li role="menuitemcheckbox" data-option="font-bold" aria-checked="false">
-                        Bold
-                    </li>
-                    <li role="menuitemcheckbox" data-option="font-italic" aria-checked="false">
-                        Italic
-                    </li>
-                </ul>
-            </li>
-            <li role="none">
-                <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#">
-                    Text Align
-                </a>
-                <ul role="menu" data-option="text-align" aria-label="Text Align">
-                    <li role="menuitemradio" aria-checked="true">
-                        Left
-                    </li>
-                    <li role="menuitemradio" aria-checked="false">
-                        Center
-                    </li>
-                    <li role="menuitemradio" aria-checked="false">
-                        Right
-                    </li>
-                </ul>
-            </li>
-            <li role="none">
-                <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#">
-                    Size
-                </a>
-                <ul role="menu" aria-label="Size">
-                    <li>
-                        <ul role="group" data-option="font-size" aria-label="Font Sizes">
-                            <li role="menuitemradio" aria-checked="false">
-                                X-Small
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                Small
-                            </li>
-                            <li role="menuitemradio" aria-checked="true">
-                                Medium
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                Large
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                X-Large
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <p>Test paragraph. Lorem ipsum dolor sit amet consectetur adipisicing elit. In amet animi veritatis, ipsam itaque esse inventore, delectus vitae aspernatur, recusandae ipsa deleniti doloribus ab dolore nulla ut atque ratione pariatur.</p>
+        <hr aria-hidden="true">
+    </header>
+    <!-- Row with columns -->
+    <!-- TODO: Discuss single or multiple navigations -->
+    <div class="row col3">
+        <!--row with 3 columns-->
+        <div class="has-border">
+            <!--column 1 of 3-->
+            <h2 id="menubar1label">Accessibility Options</h2>
+            <hr aria-hidden="true">
+            <ul id="menubar1" role="menubar" aria-labelledby="menubar1label">
+                <li role="none">
+                    <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
+                        Color Scheme
+                    </a>
+                    <ul role="group" aria-label="Color Scheme" data-option="color-scheme">
+                        <li role="menuitemradio" aria-checked="true">
+                            Light mode
+                        </li>
+                        <li role="menuitemradio" aria-checked="false">
+                            Light mode (Gentle)
+                        </li>
+                        <li role="menuitemradio" aria-checked="false">
+                            Dark mode
+                        </li>
+                        <li role="menuitemradio" aria-checked="false">
+                            Dark mode (Gentle)
+                        </li>
+                    </ul>
+                </li>
+                <li role="none">
+                    <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
+                        Font
+                    </a>
+                    <ul role="menu" data-option="font-family" aria-label="Font">
+                        <li role="menuitemradio" aria-checked="true">
+                            Sans-serif
+                        </li>
+                        <li role="menuitemradio" aria-checked="false">
+                            Serif
+                        </li>
+                        <li role="menuitemradio" aria-checked="false">
+                            Monospace
+                        </li>
+                        <li role="menuitemradio" aria-checked="false">
+                            OpenDyslexic
+                        </li>
+                        <li role="separator"></li>
+                        <li role="menuitemcheckbox" data-option="font-bold" aria-checked="false">
+                            Bold
+                        </li>
+                        <li role="menuitemcheckbox" data-option="font-italic" aria-checked="false">
+                            Italic
+                        </li>
+                    </ul>
+                </li>
+                <li role="none">
+                    <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
+                        Text Align
+                    </a>
+                    <ul role="menu" data-option="text-align" aria-label="Text Align">
+                        <li role="menuitemradio" aria-checked="true">
+                            Left
+                        </li>
+                        <li role="menuitemradio" aria-checked="false">
+                            Center
+                        </li>
+                        <li role="menuitemradio" aria-checked="false">
+                            Right
+                        </li>
+                    </ul>
+                </li>
+                <li role="none">
+                    <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
+                        Size
+                    </a>
+                    <ul role="menu" aria-label="Size">
+                        <li>
+                            <ul role="group" data-option="font-size" aria-label="Font Sizes">
+                                <li role="menuitemradio" aria-checked="false">
+                                    X-Small
+                                </li>
+                                <li role="menuitemradio" aria-checked="false">
+                                    Small
+                                </li>
+                                <li role="menuitemradio" aria-checked="true">
+                                    Medium
+                                </li>
+                                <li role="menuitemradio" aria-checked="false">
+                                    Large
+                                </li>
+                                <li role="menuitemradio" aria-checked="false">
+                                    X-Large
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="has-border">
+            <!--column 2 of 3-->
+            <h2>Filler 1</h2>
+        </div>
+        <div class="has-border">
+            <!--column 3 of 3-->
+            <h2>Filler 1</h2>
+        </div>
     </div>
+    <main>
+        <hr aria-hidden="true">
+
+        <p>Test paragraph. Lorem ipsum dolor sit amet consectetur adipisicing elit. In amet animi veritatis, ipsam itaque esse inventore, delectus vitae aspernatur, recusandae ipsa deleniti doloribus ab dolore nulla ut atque ratione pariatur.</p>
+    </main>
 </body>
 
 </html>

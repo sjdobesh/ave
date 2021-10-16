@@ -7,9 +7,12 @@
 *   Desc:   Styling functions for changing the style of an item
 */
 
+const borders = "has-border";
+var borderElements;
 var StyleManager = function (id) {
     this.node = document.getElementById(id);
     this.fontSize = 'medium';
+    borderElements = document.getElementsByClassName(borders);
 };
 
 StyleManager.prototype.setFontFamily = function (value) {
@@ -33,32 +36,46 @@ StyleManager.prototype.setColor = function (value) {
     this.node.style.color = value;
 };
 
+const light = '#fff';
+const dark = '#000';
+const lightGentle = '#eee';
+const darkGentle = '#555';
 StyleManager.prototype.setColorScheme = function (value) {
     switch (value.trim()) {
         case 'light mode':
-            this.node.style.color = 'black';
+            this.node.style.color = dark;
             this.node.style.background = 'transparent';
+            this.setBorders(dark);
             break;
 
         case 'light mode (gentle)':
-            this.node.style.color = '#555';
-            this.node.style.background = '#eee';
+            this.node.style.color = darkGentle;
+            this.node.style.background = lightGentle;
+            this.setBorders(darkGentle);
             break;
         
         case 'dark mode':
-            this.node.style.color = 'white';
-            this.node.style.background = 'black';
+            this.node.style.color = light;
+            this.node.style.background = dark;
+            this.setBorders(light);
             break;
     
         case 'dark mode (gentle)':
-            this.node.style.color = '#eee';
-            this.node.style.background = '#555';
+            this.node.style.color = lightGentle;
+            this.node.style.background = darkGentle;
+            this.setBorders(lightGentle);
             break;
         
         default:
             break;
     }
 };
+
+StyleManager.prototype.setBorders = function(value) {
+    for(var i = 0; i < borderElements.length; i++) {
+        borderElements[i].style.borderColor = value;
+    }
+}
 
 StyleManager.prototype.setBold = function (flag) {
 
