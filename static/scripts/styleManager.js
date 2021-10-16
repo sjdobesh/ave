@@ -33,6 +33,33 @@ StyleManager.prototype.setColor = function (value) {
     this.node.style.color = value;
 };
 
+StyleManager.prototype.setColorScheme = function (value) {
+    switch (value.trim()) {
+        case 'light mode':
+            this.node.style.color = 'black';
+            this.node.style.background = 'transparent';
+            break;
+
+        case 'light mode (gentle)':
+            this.node.style.color = '#555';
+            this.node.style.background = '#eee';
+            break;
+        
+        case 'dark mode':
+            this.node.style.color = 'white';
+            this.node.style.background = 'black';
+            break;
+    
+        case 'dark mode (gentle)':
+            this.node.style.color = '#eee';
+            this.node.style.background = '#555';
+            break;
+        
+        default:
+            break;
+    }
+};
+
 StyleManager.prototype.setBold = function (flag) {
 
     if (flag) {
@@ -126,6 +153,10 @@ StyleManager.prototype.setOption = function (option, value) {
 
         case 'font-color':
             this.setColor(value);
+            break;
+
+        case 'color-scheme':
+            this.setColorScheme(value);
             break;
 
         case 'font-family':

@@ -1,6 +1,7 @@
-h1 {
-  border: 10px #aaa solid;
-  color: red;
-  text-align: center;
-  padding: 5px;
+/* Import OpenDyslexic font */
+@import url("https://db.onlinewebfonts.com/c/66a105c2c6d3ca4bf2c6fa8b8e0df1bf?family=OpenDyslexic");
+/* Styling */
+
+#wrapper {
+  font-family: sans-serif;
 }

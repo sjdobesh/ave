@@ -9,7 +9,7 @@ ul[role="menubar"] {
     padding: 0.25em;
     font-size: 110%;
     list-style: none;
-    background-color: #eee;
+    /* background-color: #eee; */
 }
 
 ul[role="menubar"] li {
@@ -54,7 +54,7 @@ ul[role="menubar"] [role="menuitem"], ul[role="menubar"] [role="menuitemcheckbox
 
 ul[role="menubar"] ul li[role="menuitem"], ul[role="menubar"] ul li[role="menuitemcheckbox"], ul[role="menubar"] ul li[role="menuitemradio"], ul[role="menubar"] ul li[role="separator"] {
     padding-left: 1.5em;
-    width: 8em;
+    width: 8.5em;
 }
 
 ul[role="menubar"] [role="separator"] {
