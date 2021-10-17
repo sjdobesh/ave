@@ -7,11 +7,11 @@
 }
 
 /* Row stylings */
-.row.col3 {
+.row.col2 {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
-.row.col3 div {
+.row.col2 div, .row.col2 nav {
   margin: 10px;
   padding: 10px;
 }
@@ -37,4 +37,10 @@
   position: absolute;
   width: 1px;
   word-wrap: normal !important;
+}
+
+@media only screen and (max-width: 1024px) {
+  .row.col2 {
+    grid-template-columns: 1fr;
+  }
 }

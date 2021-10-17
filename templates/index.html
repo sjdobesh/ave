@@ -29,13 +29,12 @@ The ul menubars are (or are based on) the following w3 code: https://www.w3.org/
     </header>
     <!-- Row with columns -->
     <!-- TODO: Discuss single or multiple navigations -->
-    <div class="row col3">
-        <!--row with 3 columns-->
-        <div class="has-border">
-            <!--column 1 of 3-->
-            <h2 id="menubar1label">Accessibility Options</h2>
+    <div class="row col2">
+        <!--row with 2 columns-->
+        <nav class="has-border" aria-labelledby="a11y-options"> <!--column 1 of 2-->
+            <h2 id="a11y-options">Accessibility Options</h2>
             <hr aria-hidden="true">
-            <ul id="menubar1" role="menubar" aria-labelledby="menubar1label">
+            <ul id="menubar1" role="menubar" aria-labelledby="a11y-options">
                 <li role="none">
                     <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
                         Color Scheme
@@ -98,14 +97,10 @@ The ul menubars are (or are based on) the following w3 code: https://www.w3.org/
                     </ul>
                 </li>
             </ul>
-        </div>
+        </nav>
         <div class="has-border">
-            <!--column 2 of 3-->
-            <h2>Filler 1</h2>
-        </div>
-        <div class="has-border">
-            <!--column 3 of 3-->
-            <h2>Filler 1</h2>
+            <!--column 2 of 2-->
+            <h2>Filler</h2>
         </div>
     </div>
     <main>
