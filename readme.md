@@ -19,29 +19,30 @@ CSCI 497T with Professor Elglaly
 ### Dependencies
 Requires Python 3 and Flask.
 
-Install flask with pip (or conda) in a virtual environment.
-
+Install flask and Flask-Reuploaded with pip (or conda) in a virtual environment.
+Note that for Conda, you will have to install pip to the Conda environment, and then call pip from the environments bin folder. The path to the folder `anaconda` may be different on your system, but it installs to your home directory by default.
 #### Linux
 
 ##### Pip
 ```
 python3 -m venv env
 source env/bin/activate
-pip install flask
+pip install flask Flask-Reuploaded
 ```
 
 ##### Conda
 ```
 conda create --name env
 conda activate env
-conda install flask
+conda install pip
+~/anaconda/envs/env/bin/pip install flask Flask-Reuploaded
 ```
 
 #### Windows PowerShell
 ```
 py -3 -m venv venv
 venv\Scripts\activate
-pip install Flask
+pip install flask Flask-Reuploaded
 ```
 
 ### Quick Start
