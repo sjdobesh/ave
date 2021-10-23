@@ -19,7 +19,7 @@ CSCI 497T with Professor Elglaly
 ### Dependencies
 Requires Python 3 and Flask.
 
-Install flask with pip (or conda) in a virtual environment.
+Install flask and flask_uploads with pip (or conda) in a virtual environment.
 
 #### Linux
 
