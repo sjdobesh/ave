@@ -119,6 +119,9 @@ The ul menubars are (or are based on) the following w3 code: https://www.w3.org/
 
         <hr aria-hidden="true">
         <h2>Video</h2>
+        <video height="240" width="360">
+            <source src="{{ url_for('send_uploaded_file', filename=uploaded_video) }}" type="video/mp4">
+        </video>
 
         <p>Test paragraph. Lorem ipsum dolor sit amet consectetur adipisicing elit. In amet animi veritatis, ipsam itaque esse inventore, delectus vitae aspernatur, recusandae ipsa deleniti doloribus ab dolore nulla ut atque ratione pariatur.</p>
     </main>
