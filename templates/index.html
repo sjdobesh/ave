@@ -104,7 +104,20 @@ The ul menubars are (or are based on) the following w3 code: https://www.w3.org/
         </div>
     </div>
     <main>
+        <!-- TODO: Figure out how to make these considered alerts to screen reader users. -->
+        <h2>Alerts</h2>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class="flashes">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
         <hr aria-hidden="true">
+        <h2>Video</h2>
 
         <p>Test paragraph. Lorem ipsum dolor sit amet consectetur adipisicing elit. In amet animi veritatis, ipsam itaque esse inventore, delectus vitae aspernatur, recusandae ipsa deleniti doloribus ab dolore nulla ut atque ratione pariatur.</p>
     </main>
