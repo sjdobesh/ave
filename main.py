@@ -12,9 +12,13 @@ configure_uploads(app, videos)
 @app.route('/', methods=['GET', 'POST'])
 def upload():
     if request.method == 'POST' and 'video' in request.files:
-        video = request.files['video']
-        videoname = video.filename
-        videos.save(video)
-        flash("Video " + videoname + " saved successfully.")
-        return render_template('index.html')
+        try:
+            video = request.files['video']
+            videoname = video.filename
+            videos.save(video)
+            flash("Video " + videoname + " saved successfully.")
+            return render_template('index.html')
+        except:
+            flash("Incorrect file type, try again")
+            return render_template('upload.html')
     return render_template('upload.html')
