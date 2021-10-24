@@ -13,8 +13,8 @@ configure_uploads(app, videos)
 def upload():
     if request.method == 'POST' and 'video' in request.files:
         video = request.files['video']
-        filename = video.filename
+        videoname = video.filename
         videos.save(video)
-        flash("Video " + filename + " saved successfully.")
+        flash("Video " + videoname + " saved successfully.")
         return render_template('index.html')
     return render_template('upload.html')
