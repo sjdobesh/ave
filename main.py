@@ -1,7 +1,7 @@
 import os
 from flask import Flask, flash, render_template, request
 from flask_uploads import UploadSet, configure_uploads
-from werkzeug.utils import redirect
+from werkzeug.utils import redirect, secure_filename
 
 app = Flask(__name__)
 extensions = ('mp4') #restricting to mp4 for now
@@ -15,7 +15,7 @@ def upload():
     if request.method == 'POST' and 'video' in request.files:
         try:
             video = request.files['video']
-            videoname = video.filename
+            videoname = secure_filename(video.filename)
             videos.save(video)
             flash("Video " + videoname + " saved successfully.")
             return render_template('index.html', uploaded_video=videoname)
