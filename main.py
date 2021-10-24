@@ -15,6 +15,6 @@ def upload():
         video = request.files['video']
         filename = video.filename
         videos.save(video)
-        flash("Video saved successfully.")
+        flash("Video " + filename + " saved successfully.")
         return render_template('index.html')
     return render_template('upload.html')
