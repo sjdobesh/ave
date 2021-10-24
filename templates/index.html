@@ -31,7 +31,23 @@ The ul menubars are (or are based on) the following w3 code: https://www.w3.org/
     <!-- TODO: Discuss single or multiple navigations -->
     <div class="row col2">
         <!--row with 2 columns-->
-        <nav class="has-border" aria-labelledby="a11y-options"> <!--column 1 of 2-->
+        <div class="has-border"> <!--column 1 of 2-->
+            <!-- TODO: Figure out how to make these considered alerts to screen reader users.
+                    Setting an alert role didn't seem to help; should the alerts go at the top of the page? Decide later. -->
+            <h2>Alerts</h2>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+            {% else %}
+            <p>There are no alerts to display.</p>
+            {% endif %}
+            {% endwith %}
+        </div>
+        <nav class="has-border" aria-labelledby="a11y-options"> <!--column 2 of 2-->
             <h2 id="a11y-options">Accessibility Options</h2>
             <hr aria-hidden="true">
             <ul id="menubar1" role="menubar" aria-labelledby="a11y-options">
@@ -98,24 +114,8 @@ The ul menubars are (or are based on) the following w3 code: https://www.w3.org/
                 </li>
             </ul>
         </nav>
-        <div class="has-border">
-            <!--column 2 of 2-->
-            <h2>Filler</h2>
-        </div>
     </div>
     <main>
-        <!-- TODO: Figure out how to make these considered alerts to screen reader users.
-                Setting an alert role didn't seem to help; should the alerts go at the top of the page? Decide later. -->
-        <h2>Alerts</h2>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul class="flashes">
-        {% for message in messages %}
-            <li>{{ message }}</li>
-        {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
 
         <hr aria-hidden="true">
         <h2>{% if uploaded_video %}Video: {{uploaded_video}}{% else %}Upload Video{% endif %}</h2>
