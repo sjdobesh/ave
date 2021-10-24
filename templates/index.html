@@ -104,7 +104,8 @@ The ul menubars are (or are based on) the following w3 code: https://www.w3.org/
         </div>
     </div>
     <main>
-        <!-- TODO: Figure out how to make these considered alerts to screen reader users. -->
+        <!-- TODO: Figure out how to make these considered alerts to screen reader users.
+                Setting an alert role didn't seem to help; should the alerts go at the top of the page? Decide later. -->
         <h2>Alerts</h2>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
