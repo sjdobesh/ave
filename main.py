@@ -22,8 +22,8 @@ def upload():
             return render_template('index.html', uploaded_video=escape(videoname))
         except:
             flash("Incorrect file type, try again")
-            return render_template('upload.html')
-    return render_template('upload.html')
+            return render_template('index.html')
+    return render_template('index.html')
 
 @app.route('/uploads/<filename>')
 def send_uploaded_file(filename=''):

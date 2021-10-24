@@ -118,12 +118,19 @@ The ul menubars are (or are based on) the following w3 code: https://www.w3.org/
         {% endwith %}
 
         <hr aria-hidden="true">
-        <h2>Video</h2>
+        <h2>{% if uploaded_video %}Video: {{uploaded_video}}{% else %}Upload Video{% endif %}</h2>
+        
+        {% if uploaded_video %}
         <video height="240" width="360">
             <source src="{{ url_for('send_uploaded_file', filename=uploaded_video) }}" type="video/mp4">
         </video>
-
-        <p>Test paragraph. Lorem ipsum dolor sit amet consectetur adipisicing elit. In amet animi veritatis, ipsam itaque esse inventore, delectus vitae aspernatur, recusandae ipsa deleniti doloribus ab dolore nulla ut atque ratione pariatur.</p>
+        {% else %}
+        <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload') }}">
+            <label for="video">Upload a video</label>
+            <input type="file" id="video" name="video" required>
+            <button type="submit">Upload</button>
+        </form>
+        {% endif %}
     </main>
 </body>
 
