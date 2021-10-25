@@ -130,6 +130,7 @@ The ul menubars are (or are based on) the following w3 code: https://www.w3.org/
                     <span> / </span>
                     <time id="duration">00:00</time>
                 </div>
+                <button id="playButton" onclick="togglePlay()">Play</button>
                 <button id="logTime" onclick="logCurrentTime()">Log Time to Console</button>
             </div>
             <script src="{{ url_for('static', filename='scripts/videoPlayer.js')  }}"></script>

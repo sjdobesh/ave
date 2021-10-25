@@ -2,22 +2,23 @@
 const video = document.getElementById("videoPlayer");
 const videoControls = document.getElementById("videoControls");
 
-// const videoWorks = !!document.createElement('video').canPlayType;
-// if (videoWorks) {
-//     video.controls = false;
-//     videoControls.classList.remove('hidden');
-// }
+const videoWorks = !!document.createElement('video').canPlayType;
+if (videoWorks) {
+    video.controls = false;
+    videoControls.classList.remove('hidden');
+}
 
-// // play button
-// const playButton = document.getElementById("play");
-
-// function togglePlay() {
-//     if (video.paused || video.ended) {
-//         video.play();
-//     } else {
-//         video.pause();
-//     }
-// }
+// toggle between playing and pausing
+function togglePlay() {
+    const playButton = document.getElementById("playButton")
+    if (video.paused || video.ended) {
+        video.play();
+        playButton.innerText = "Pause";
+    } else {
+        video.pause();
+        playButton.innerText = "Play";
+    }
+}
 
 // time-elapsed
 const timeElapsed = document.getElementById('time-elapsed');
@@ -55,6 +56,5 @@ function logCurrentTime() {
     console.log(time);
 }
 
-// playButton.addEventListener('click', togglePlay);
 video.addEventListener('loadedmetadata', initializeVideo);
 video.addEventListener('timeupdate', updateTimeElapsed);
