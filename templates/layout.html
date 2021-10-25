@@ -2,19 +2,41 @@
 <html lang="en">
 
 <head>
-    {% block head %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>{% block title %}{% endblock %} - My Webpage</title>
-    {% endblock %}
+    <title>{% block title %}{% endblock %} - Accessible Video Editor</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')  }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menubarAction.css')  }}">
+    <!-- A11y options menubar scripts -->
+    <script src="{{ url_for('static', filename='scripts/MenubarAction.js')  }}"></script>
+    <script src="{{ url_for('static', filename='scripts/MenubarItemAction.js')  }}"></script>
+    <script src="{{ url_for('static', filename='scripts/PopupMenuAction.js')  }}"></script>
+    <script src="{{ url_for('static', filename='scripts/PopupMenuActionItem.js')  }}"></script>
+    <script src="{{ url_for('static', filename='scripts/menubar-2-init.js')  }}"></script>
+    <script src="{{ url_for('static', filename='scripts/styleManager.js')  }}"></script>
 </head>
 
 <body>
-    <div id="content">{% block content %}{% endblock %}</div>
-    <div id="footer">
-        {% block footer %}
-        &copy; Copyright 2010 by <a href="http://domain.invalid/">you</a>.
-        {% endblock %}
-    </div>
+    <div id="wrapper">
+        <header>
+            <h1>{% block h1 %}{% endblock %}</h1>
+            <hr aria-hidden="true">
+        </header>
+        <nav aria-label="Primary" class="menu">
+            <ul>
+                <!-- {% block link1 %}{% endblock %} -->
+                <li><a class="menu-link" href="{% block link1href %}{% endblock %}">{% block link1text %}{% endblock %}</a></li>
+                <li><a class="menu-link" href="https://github.com/sjdobesh/ave">GitHub</a></li>
+            </ul>
+            <hr aria-hidden="true">
+        </nav>
+        <main>
+            {% block main %}
+            {% endblock %}
+        </main>
+        <footer>
+            <!-- TODO: Add footer here; copyright info? -->
+            <!-- <hr aria-hidden="true"> -->
+        </footer>
 </body>
 
 </html>
