@@ -47,7 +47,12 @@ function updateTimeElapsed() {
     const time = formatTime(Math.round(video.currentTime));
     timeElapsed.innerText = `${time.minutes}:${time.seconds}`;
     timeElapsed.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`)
+}
 
+// log time to Console for debugging
+function logCurrentTime() {
+    const time = formatTime(Math.round(video.currentTime));
+    console.log(time);
 }
 
 // playButton.addEventListener('click', togglePlay);
