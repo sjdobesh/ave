@@ -98,46 +98,6 @@ PopupMenuAction.prototype.init = function () {
     }
 };
 
-PopupMenuAction.prototype.updateMenuStates = function () {
-
-    var item = this.domNode.querySelector('[data-option="font-larger"]');
-    if (item) {
-        if (this.actionManager.isMaxFontSize()) {
-            item.setAttribute('aria-disabled', 'true');
-        }
-        else {
-            item.setAttribute('aria-disabled', 'false');
-        }
-    }
-
-    var item = this.domNode.querySelector('[data-option="font-smaller"]');
-    if (item) {
-        if (this.actionManager.isMinFontSize()) {
-            item.setAttribute('aria-disabled', 'true');
-        }
-        else {
-            item.setAttribute('aria-disabled', 'false');
-        }
-    }
-
-    // Update the radio buttons for font, in case they were updated using the larger
-    // smaller font menu items
-
-    var rbs = this.domNode.querySelectorAll('[data-option="font-size"] [role=menuitemradio]');
-
-    for (var i = 0; i < rbs.length; i++) {
-        var rb = rbs[i];
-
-        if (this.actionManager.fontSize === rb.textContent.toLowerCase()) {
-            rb.setAttribute('aria-checked', 'true');
-        }
-        else {
-            rb.setAttribute('aria-checked', 'false');
-        }
-    }
-
-};
-
 /* FOCUS MANAGEMENT METHODS */
 
 PopupMenuAction.prototype.setFocusToController = function (command) {
