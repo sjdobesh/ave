@@ -41,7 +41,8 @@
   border-style: solid;
 }
 .menu a:focus {
-  border-style: dashed;
+  outline-width: 2px;
+  outline-style: dashed;
 }
 
 /* Upload Form Stylings */
@@ -67,6 +68,10 @@
 }
 #menubar1 li {
   cursor: pointer;
+}
+a:focus, a:hover {
+  outline-width: 2px;
+  outline-style: dashed;
 }
 
 /* Text meant only for screen readers. Source: https://make.wordpress.org/accessibility/handbook/markup/the-css-class-screen-reader-text/ */
