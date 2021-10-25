@@ -24,13 +24,95 @@
         <nav aria-label="Primary" class="menu">
             <ul>
                 <!-- {% block link1 %}{% endblock %} -->
-                <li><a class="menu-link" href="{% block link1href %}{% endblock %}">{% block link1text %}{% endblock %}</a></li>
+                <li><a class="menu-link" href="{% block link1href %}{% endblock %}">{% block link1text %}{% endblock
+                        %}</a></li>
                 <li><a class="menu-link" href="https://github.com/sjdobesh/ave">GitHub</a></li>
             </ul>
             <hr aria-hidden="true">
         </nav>
         <main>
             {% block main %}
+            {% block col2 %}
+            <!-- Row with columns -->
+            <!-- TODO: Discuss single or multiple navigations -->
+            <div class="row col2">
+                <!--row with 2 columns-->
+                <div class="has-border margin-left-0" {% block col1role %}{% endblock %}>
+                    <!--column 1 of 2-->
+                    <h2>{% block col1h2 %}{% endblock %}</h2>
+                    {% block col1content%}{% endblock %}
+                </div>
+                <nav class="has-border margin-right-0" aria-labelledby="a11y-options">
+                    <!--column 2 of 2-->
+                    <h2 id="a11y-options">Accessibility Options</h2>
+                    <hr aria-hidden="true">
+                    <ul id="menubar1" role="menubar" aria-labelledby="a11y-options">
+                        <li role="none">
+                            <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
+                                Color Scheme
+                            </a>
+                            <ul role="group" aria-label="Color Scheme" data-option="color-scheme">
+                                <li role="menuitemradio" aria-checked="true">
+                                    Light mode
+                                </li>
+                                <li role="menuitemradio" aria-checked="false">
+                                    Light mode (Gentle)
+                                </li>
+                                <li role="menuitemradio" aria-checked="false">
+                                    Dark mode
+                                </li>
+                                <li role="menuitemradio" aria-checked="false">
+                                    Dark mode (Gentle)
+                                </li>
+                            </ul>
+                        </li>
+                        <li role="none">
+                            <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
+                                Font
+                            </a>
+                            <ul role="menu" data-option="font-family" aria-label="Font">
+                                <li role="menuitemradio" aria-checked="true">
+                                    Sans-serif
+                                </li>
+                                <li role="menuitemradio" aria-checked="false">
+                                    Serif
+                                </li>
+                                <li role="menuitemradio" aria-checked="false">
+                                    Monospace
+                                </li>
+                                <li role="menuitemradio" aria-checked="false">
+                                    OpenDyslexic
+                                </li>
+                                <li role="separator"></li>
+                                <li role="menuitemcheckbox" data-option="font-bold" aria-checked="false">
+                                    Bold
+                                </li>
+                                <li role="menuitemcheckbox" data-option="font-italic" aria-checked="false">
+                                    Italic
+                                </li>
+                            </ul>
+                        </li>
+                        <li role="none">
+                            <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
+                                Text Align
+                            </a>
+                            <ul role="menu" data-option="text-align" aria-label="Text Align">
+                                <li role="menuitemradio" aria-checked="true">
+                                    Left
+                                </li>
+                                <li role="menuitemradio" aria-checked="false">
+                                    Center
+                                </li>
+                                <li role="menuitemradio" aria-checked="false">
+                                    Right
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <hr aria-hidden="true">
+            {% endblock %}
             {% endblock %}
         </main>
         <footer>
