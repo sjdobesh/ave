@@ -8,25 +8,24 @@ The ul menubars are based on the following w3 code: https://www.w3.org/TR/wai-ar
 {% block link1href %}/about{% endblock %}
 {% block link1text %}About{% endblock %}
 
-
-{% block col2 %}
-    <!-- TODO: Figure out how to make these considered alerts to screen reader users.
+<!-- TODO: Figure out how to make these considered alerts to screen reader users.
 Setting an alert role didn't seem to help; should the alerts go at the top of the page? Decide later. -->
-    {% block col1h2 %}Alerts{% endblock %}
-    {% block col1content %}
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <ul class="flashes">
-        {% for message in messages %}
-        <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p>There are no alerts to display.</p>
-    {% endif %}
-    {% endwith %}
-    {% endblock %}
+{% block col1role %}alert{% endblock %}
+{% block col1h2 %}Alerts{% endblock %}
+{% block col1content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class="flashes">
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>There are no alerts to display.</p>
+{% endif %}
+{% endwith %}
 {% endblock %}
+
 
 {% block main %}
 
