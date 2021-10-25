@@ -121,7 +121,7 @@ The ul menubars are (or are based on) the following w3 code: https://www.w3.org/
             <h2>{% if uploaded_video %}Video: {{uploaded_video}}{% else %}Upload Video{% endif %}</h2>
             
             {% if uploaded_video %}
-            <video id="videoPlayer" height="80%" width="80%" controls preload="metadata">
+            <video id="videoPlayer" height="80%" width="80%" preload="metadata">
                 <source src="{{ url_for('send_uploaded_file', filename=uploaded_video) }}" type="video/mp4">
             </video>
             <div class="videoControls hidden" id="videoControls">
