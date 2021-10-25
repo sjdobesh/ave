@@ -1,6 +1,4 @@
 /* Important: All color stylings should go in colors.css */
-
-
 @import url("a11y-options.css");
 
 /* Styling */
@@ -60,7 +58,6 @@
 .has-border, ul[role="menubar"] .has-border[role="menuitem"] {
   border-width: 2px;
   border-style: solid;
-  /* border: 2px solid black; */
 }
 .margin-left-0, .row.col2 .margin-left-0 {
   margin-left: 0;
