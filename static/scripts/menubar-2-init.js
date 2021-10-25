@@ -16,6 +16,6 @@
 window.addEventListener('load', function () {
     var menubar = new MenubarAction(document.getElementById('menubar1'));
     // var styleManager = new StyleManager('textarea1');
-    var styleManager = new StyleManager('wrapper'); //testing
+    var styleManager = new StyleManager('body'); //testing
     menubar.init(styleManager);
 });
