@@ -12,37 +12,44 @@
 body {
     color: var(--dark);
 }
-
 .has-border, ul[role="menubar"] .has-border[role="menuitem"] {
     border-color: var(--dark);
 }
-
 .menu a {
     border-color: var(--dark);
     background-color: var(--light-gentle);
     color: var(--dark);
 }
-
 .menu a:hover, .menu a:focus {
     background-color: var(--light-focus);
 }
-
 .menu a:active {
     background-color: var(--light-active);
 }
 
 /* Light gentle */
-/* TODO */
+body.light-gentle {
+    color: var(--dark-gentle);
+    background-color: var(--light-gentle);
+}
+.light-gentle .has-border, .light-gentle ul[role="menubar"] .has-border[role="menuitem"] {
+    border-color: var(--dark-gentle);
+}
 
 /* Dark */
 body.dark {
     color: var(--light);
     background-color: var(--dark);
 }
-
 .dark .has-border, .dark ul[role="menubar"] .has-border[role="menuitem"] {
     border-color: var(--light);
 }
 
 /* Dark gentle */
-/* TODO */
+body.dark-gentle {
+    color: var(--light-gentle);
+    background-color: var(--dark-gentle);
+}
+.dark-gentle .has-border, .dark-gentle ul[role="menubar"] .has-border[role="menuitem"] {
+    border-color: var(--light-gentle);
+}
