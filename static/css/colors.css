@@ -15,15 +15,16 @@ body {
 .has-border, ul[role="menubar"] .has-border[role="menuitem"] {
     border-color: var(--dark);
 }
-.menu a {
+body .menu a, body.dark .menu a, body.dark-gentle .menu a {
+    outline-color: var(--dark);
     border-color: var(--dark);
     background-color: var(--light-gentle);
     color: var(--dark);
 }
-.menu a:hover, .menu a:focus {
+body .menu a:hover, .menu a:focus {
     background-color: var(--light-focus);
 }
-.menu a:active {
+body .menu a:active {
     background-color: var(--light-active);
 }
 
@@ -52,4 +53,16 @@ body.dark-gentle {
 }
 .dark-gentle .has-border, .dark-gentle ul[role="menubar"] .has-border[role="menuitem"] {
     border-color: var(--light-gentle);
+}
+
+/* Link colors in dark and dark-gentle */
+body.dark .menu a, body.dark-gentle .menu a {
+    outline-color: var(--light);
+}
+.dark a, .dark-gentle a {
+    color: lightblue;
+}
+.dark a:focus, .dark a:hover, .dark-gentle a:focus, .dark-gentle a:hover {
+    color: rgb(217, 173, 230);
+    /* outline-color: var(--light); */
 }
