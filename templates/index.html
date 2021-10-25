@@ -28,11 +28,18 @@ The ul menubars are (or are based on) the following w3 code: https://www.w3.org/
             <h1>Accessible Video Editor{% if uploaded_video %}: {{uploaded_video}} {% endif %}</h1>
             <hr aria-hidden="true">
         </header>
+        <nav aria-label="Primary" class="menu">
+            <ul>
+                <li><a class="menu-link" href="/about">About</a></li>
+                <li><a class="menu-link" href="https://github.com/sjdobesh/ave">GitHub</a></li>
+            </ul>
+            <hr aria-hidden="true">
+        </nav>
         <!-- Row with columns -->
         <!-- TODO: Discuss single or multiple navigations -->
         <div class="row col2">
             <!--row with 2 columns-->
-            <div class="has-border margin-left-0"> <!--column 1 of 2-->
+            <div class="has-border margin-left-0" role="alert"> <!--column 1 of 2-->
                 <!-- TODO: Figure out how to make these considered alerts to screen reader users.
                         Setting an alert role didn't seem to help; should the alerts go at the top of the page? Decide later. -->
                 <h2>Alerts</h2>
