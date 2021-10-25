@@ -12,7 +12,25 @@ var StyleManager = function (element) {
 };
 
 StyleManager.prototype.setFontFamily = function (value) {
-    this.node.style.fontFamily = value;
+    this.node.classList.remove("serif");
+    this.node.classList.remove("monospace");
+    this.node.classList.remove("opendyslexic");
+    switch (value.trim()) {
+        case 'serif':
+            this.node.classList.add("serif");
+            break;
+        
+        case 'monospace':
+            this.node.classList.add("monospace");
+            break;
+    
+        case 'opendyslexic':
+            this.node.classList.add("opendyslexic");
+            break;
+        
+        default: // sans-serif
+            break;
+    }
 };
 
 StyleManager.prototype.setTextDecoration = function (value) {
@@ -28,24 +46,23 @@ StyleManager.prototype.setColor = function (value) {
 };
 
 StyleManager.prototype.setColorScheme = function (value) {
+    this.node.classList.remove("light-gentle");
+    this.node.classList.remove("dark");
+    this.node.classList.remove("dark-gentle");
     switch (value.trim()) {
-        case 'light mode':
-            document.getElementsByTagName("body")[0].setAttribute("class", "light");
-            break;
-
         case 'light mode (gentle)':
-            document.getElementsByTagName("body")[0].setAttribute("class", "light-gentle");
+            this.node.classList.add("light-gentle");
             break;
         
         case 'dark mode':
-            document.getElementsByTagName("body")[0].setAttribute("class", "dark");
+            this.node.classList.add("dark");
             break;
     
         case 'dark mode (gentle)':
-            document.getElementsByTagName("body")[0].setAttribute("class", "dark-gentle");
+            this.node.classList.add("dark-gentle");
             break;
         
-        default:
+        default: // Light mode
             break;
     }
 };

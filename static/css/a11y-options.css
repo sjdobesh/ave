@@ -12,3 +12,12 @@ body.bold {
 body.italic {
     font-style: italic;
 }
+body.serif {
+    font-family: serif;
+}
+body.monospace {
+    font-family: monospace;
+}
+body.opendyslexic {
+    font-family: 'OpenDyslexic';
+}
