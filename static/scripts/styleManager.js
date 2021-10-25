@@ -11,7 +11,6 @@ const borders = "has-border";
 var borderElements;
 var StyleManager = function (id) {
     this.node = document.getElementById(id);
-    this.fontSize = 'medium';
     borderElements = document.getElementsByClassName(borders);
 };
 
@@ -25,11 +24,6 @@ StyleManager.prototype.setTextDecoration = function (value) {
 
 StyleManager.prototype.setTextAlign = function (value) {
     this.node.style.textAlign = value;
-};
-
-StyleManager.prototype.setFontSize = function (value) {
-    this.fontSize = value;
-    this.node.style.fontSize = value;
 };
 
 StyleManager.prototype.setColor = function (value) {
