@@ -75,7 +75,7 @@ StyleManager.prototype.setBorders = function(value) {
     for(var i = 0; i < borderElements.length; i++) {
         borderElements[i].style.borderColor = value;
     }
-}
+};
 
 StyleManager.prototype.setBold = function (flag) {
 
