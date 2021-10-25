@@ -1,147 +1,117 @@
 <!--
-
 Citations:
-The ul menubars are (or are based on) the following w3 code: https://www.w3.org/TR/wai-aria-practices/examples/menubar/menubar-2/menubar-2.html
-
-
+The ul menubars are based on the following w3 code: https://www.w3.org/TR/wai-aria-practices/examples/menubar/menubar-2/menubar-2.html
 -->
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')  }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/menubarAction.css')  }}">
-    <title>Accessible Video Editor</title>
-
-    <script src="{{ url_for('static', filename='scripts/MenubarAction.js')  }}"></script>
-    <script src="{{ url_for('static', filename='scripts/MenubarItemAction.js')  }}"></script>
-    <script src="{{ url_for('static', filename='scripts/PopupMenuAction.js')  }}"></script>
-    <script src="{{ url_for('static', filename='scripts/PopupMenuActionItem.js')  }}"></script>
-    <script src="{{ url_for('static', filename='scripts/menubar-2-init.js')  }}"></script>
-    <script src="{{ url_for('static', filename='scripts/styleManager.js')  }}"></script>
-</head>
-
-<body>
-    <div id="wrapper">
-        <header>
-            <h1>Accessible Video Editor{% if uploaded_video %}: {{uploaded_video}} {% endif %}</h1>
-            <hr aria-hidden="true">
-        </header>
-        <nav aria-label="Primary" class="menu">
-            <ul>
-                <li><a class="menu-link" href="/about">About</a></li>
-                <li><a class="menu-link" href="https://github.com/sjdobesh/ave">GitHub</a></li>
-            </ul>
-            <hr aria-hidden="true">
-        </nav>
-        <!-- Row with columns -->
-        <!-- TODO: Discuss single or multiple navigations -->
-        <div class="row col2">
-            <!--row with 2 columns-->
-            <div class="has-border margin-left-0" role="alert"> <!--column 1 of 2-->
-                <!-- TODO: Figure out how to make these considered alerts to screen reader users.
-                        Setting an alert role didn't seem to help; should the alerts go at the top of the page? Decide later. -->
-                <h2>Alerts</h2>
-                {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                <ul class="flashes">
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-                </ul>
-                {% else %}
-                <p>There are no alerts to display.</p>
-                {% endif %}
-                {% endwith %}
-            </div>
-            <nav class="has-border margin-right-0" aria-labelledby="a11y-options"> <!--column 2 of 2-->
-                <h2 id="a11y-options">Accessibility Options</h2>
-                <hr aria-hidden="true">
-                <ul id="menubar1" role="menubar" aria-labelledby="a11y-options">
-                    <li role="none">
-                        <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
-                            Color Scheme
-                        </a>
-                        <ul role="group" aria-label="Color Scheme" data-option="color-scheme">
-                            <li role="menuitemradio" aria-checked="true">
-                                Light mode
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                Light mode (Gentle)
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                Dark mode
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                Dark mode (Gentle)
-                            </li>
-                        </ul>
-                    </li>
-                    <li role="none">
-                        <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
-                            Font
-                        </a>
-                        <ul role="menu" data-option="font-family" aria-label="Font">
-                            <li role="menuitemradio" aria-checked="true">
-                                Sans-serif
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                Serif
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                Monospace
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                OpenDyslexic
-                            </li>
-                            <li role="separator"></li>
-                            <li role="menuitemcheckbox" data-option="font-bold" aria-checked="false">
-                                Bold
-                            </li>
-                            <li role="menuitemcheckbox" data-option="font-italic" aria-checked="false">
-                                Italic
-                            </li>
-                        </ul>
-                    </li>
-                    <li role="none">
-                        <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
-                            Text Align
-                        </a>
-                        <ul role="menu" data-option="text-align" aria-label="Text Align">
-                            <li role="menuitemradio" aria-checked="true">
-                                Left
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                Center
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                Right
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <main>
-            <hr aria-hidden="true">
-            <h2>{% if uploaded_video %}Video: {{uploaded_video}}{% else %}Upload Video{% endif %}</h2>
-            
-            {% if uploaded_video %}
-            <video height="240" width="360" controls>
-                <source src="{{ url_for('send_uploaded_file', filename=uploaded_video) }}" type="video/mp4">
-            </video>
-            {% else %}
-            <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload') }}">
-                <div>
-                    <label for="video">Upload a video: </label>
-                    <input type="file" id="video" name="video" required>
-                </div>
-                <button type="submit" class="upload-button">Upload</button>
-            </form>
-            {% endif %}
-        </main>
+{% extends "layout.html" %}
+{% block title %}Homepage{% endblock %}
+{% block h1 %}Accessible Video Editor{% if uploaded_video %}: {{uploaded_video}} {% endif %}{% endblock %}
+{% block link1href %}/about{% endblock %}
+{% block link1text %}About{% endblock %}
+{% block main %}
+<!-- Row with columns -->
+<!-- TODO: Discuss single or multiple navigations -->
+<div class="row col2">
+    <!--row with 2 columns-->
+    <div class="has-border margin-left-0" role="alert"> <!--column 1 of 2-->
+        <!-- TODO: Figure out how to make these considered alerts to screen reader users.
+                Setting an alert role didn't seem to help; should the alerts go at the top of the page? Decide later. -->
+        <h2>Alerts</h2>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class="flashes">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+        {% else %}
+        <p>There are no alerts to display.</p>
+        {% endif %}
+        {% endwith %}
     </div>
-</body>
-
-</html>
+    <nav class="has-border margin-right-0" aria-labelledby="a11y-options"> <!--column 2 of 2-->
+        <h2 id="a11y-options">Accessibility Options</h2>
+        <hr aria-hidden="true">
+        <ul id="menubar1" role="menubar" aria-labelledby="a11y-options">
+            <li role="none">
+                <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
+                    Color Scheme
+                </a>
+                <ul role="group" aria-label="Color Scheme" data-option="color-scheme">
+                    <li role="menuitemradio" aria-checked="true">
+                        Light mode
+                    </li>
+                    <li role="menuitemradio" aria-checked="false">
+                        Light mode (Gentle)
+                    </li>
+                    <li role="menuitemradio" aria-checked="false">
+                        Dark mode
+                    </li>
+                    <li role="menuitemradio" aria-checked="false">
+                        Dark mode (Gentle)
+                    </li>
+                </ul>
+            </li>
+            <li role="none">
+                <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
+                    Font
+                </a>
+                <ul role="menu" data-option="font-family" aria-label="Font">
+                    <li role="menuitemradio" aria-checked="true">
+                        Sans-serif
+                    </li>
+                    <li role="menuitemradio" aria-checked="false">
+                        Serif
+                    </li>
+                    <li role="menuitemradio" aria-checked="false">
+                        Monospace
+                    </li>
+                    <li role="menuitemradio" aria-checked="false">
+                        OpenDyslexic
+                    </li>
+                    <li role="separator"></li>
+                    <li role="menuitemcheckbox" data-option="font-bold" aria-checked="false">
+                        Bold
+                    </li>
+                    <li role="menuitemcheckbox" data-option="font-italic" aria-checked="false">
+                        Italic
+                    </li>
+                </ul>
+            </li>
+            <li role="none">
+                <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
+                    Text Align
+                </a>
+                <ul role="menu" data-option="text-align" aria-label="Text Align">
+                    <li role="menuitemradio" aria-checked="true">
+                        Left
+                    </li>
+                    <li role="menuitemradio" aria-checked="false">
+                        Center
+                    </li>
+                    <li role="menuitemradio" aria-checked="false">
+                        Right
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
+<main>
+    <hr aria-hidden="true">
+    <h2>{% if uploaded_video %}Video: {{uploaded_video}}{% else %}Upload Video{% endif %}</h2>
+    
+    {% if uploaded_video %}
+    <video height="240" width="360" controls>
+        <source src="{{ url_for('send_uploaded_file', filename=uploaded_video) }}" type="video/mp4">
+    </video>
+    {% else %}
+    <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload') }}">
+        <div>
+            <label for="video">Upload a video: </label>
+            <input type="file" id="video" name="video" required>
+        </div>
+        <button type="submit" class="upload-button">Upload</button>
+    </form>
+    {% endif %}
+</main>
+{% endblock %}
