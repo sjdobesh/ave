@@ -1,5 +1,5 @@
 import os
-from flask import Flask, flash, render_template, request
+from flask import Flask, flash, render_template, request, send_from_directory
 from flask_uploads import UploadSet, configure_uploads
 from werkzeug.utils import redirect, secure_filename
 from markupsafe import escape
@@ -27,5 +27,4 @@ def upload():
 
 @app.route('/uploads/<filename>')
 def send_uploaded_file(filename=''):
-    from flask import send_from_directory
     return send_from_directory(app.config["UPLOADED_VIDEOS_DEST"], escape(filename))
