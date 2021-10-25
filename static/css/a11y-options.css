@@ -21,3 +21,9 @@ body.monospace {
 body.opendyslexic {
     font-family: 'OpenDyslexic';
 }
+body.center-align {
+    text-align: center;
+}
+body.right-align {
+    text-align: right;
+}

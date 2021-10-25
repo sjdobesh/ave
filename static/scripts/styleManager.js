@@ -33,16 +33,21 @@ StyleManager.prototype.setFontFamily = function (value) {
     }
 };
 
-StyleManager.prototype.setTextDecoration = function (value) {
-    this.node.style.textDecoration = value;
-};
-
 StyleManager.prototype.setTextAlign = function (value) {
-    this.node.style.textAlign = value;
-};
-
-StyleManager.prototype.setColor = function (value) {
-    this.node.style.color = value;
+    this.node.classList.remove("center-align");
+    this.node.classList.remove("right-align");
+    switch (value.trim()) {
+        case 'center':
+            this.node.classList.add("center-align");
+            break;
+        
+        case 'right':
+            this.node.classList.add("right-align");
+            break;
+        
+        default: // Left align
+            break;
+    }
 };
 
 StyleManager.prototype.setColorScheme = function (value) {
