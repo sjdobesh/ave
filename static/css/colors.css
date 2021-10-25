@@ -1,0 +1,55 @@
+/* All menubar color scheme stylings */
+:root {
+    --light: #fff;
+    --dark: #000;
+    --light-gentle: #eee;
+    --dark-gentle: #555;
+    --light-focus: #d0d0d0;
+    --light-active: #c0c0c0;
+}
+
+/* Light mode (default) */
+body {
+    color: var(--dark);
+}
+.has-border, ul[role="menubar"] .has-border[role="menuitem"] {
+    border-color: var(--dark);
+}
+.menu a {
+    border-color: var(--dark);
+    background-color: var(--light-gentle);
+    color: var(--dark);
+}
+.menu a:hover, .menu a:focus {
+    background-color: var(--light-focus);
+}
+.menu a:active {
+    background-color: var(--light-active);
+}
+
+/* Light gentle */
+body.light-gentle {
+    color: var(--dark-gentle);
+    background-color: var(--light-gentle);
+}
+.light-gentle .has-border, .light-gentle ul[role="menubar"] .has-border[role="menuitem"] {
+    border-color: var(--dark-gentle);
+}
+
+/* Dark */
+body.dark {
+    color: var(--light);
+    background-color: var(--dark);
+}
+.dark .has-border, .dark ul[role="menubar"] .has-border[role="menuitem"] {
+    border-color: var(--light);
+}
+
+/* Dark gentle */
+body.dark-gentle {
+    color: var(--light-gentle);
+    background-color: var(--dark-gentle);
+}
+.dark-gentle .has-border, .dark-gentle ul[role="menubar"] .has-border[role="menuitem"] {
+    border-color: var(--light-gentle);
+}
