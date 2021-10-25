@@ -5,10 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Accessible Video Editor</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')  }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menubarAction.css')  }}">
+
+    <script src="{{ url_for('static', filename='scripts/MenubarAction.js')  }}"></script>
+    <script src="{{ url_for('static', filename='scripts/MenubarItemAction.js')  }}"></script>
+    <script src="{{ url_for('static', filename='scripts/PopupMenuAction.js')  }}"></script>
+    <script src="{{ url_for('static', filename='scripts/PopupMenuActionItem.js')  }}"></script>
+    <script src="{{ url_for('static', filename='scripts/menubar-2-init.js')  }}"></script>
+    <script src="{{ url_for('static', filename='scripts/styleManager.js')  }}"></script>
 </head>
 <body>
-    <header>
-        <h1>About AVE</h1>
-    </header>
+    <div id="wrapper">
+        <header>
+            <h1>About - Accessible Video Editor</h1>
+            <hr aria-hidden="true">
+        </header>
+        <nav aria-label="Primary" class="menu">
+            <ul>
+                <li><a class="menu-link" href="/">Editor</a></li>
+                <li><a class="menu-link" href="https://github.com/sjdobesh/ave">GitHub</a></li>
+            </ul>
+            <hr aria-hidden="true">
+        </nav>
+    </div>
 </body>
 </html>
