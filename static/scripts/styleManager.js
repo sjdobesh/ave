@@ -7,8 +7,8 @@
 *   Desc:   Styling functions for changing the style of an item
 */
 
-var StyleManager = function (id) {
-    this.node = document.getElementById(id);
+var StyleManager = function (element) {
+    this.node = document.getElementsByTagName(element)[0];
 };
 
 StyleManager.prototype.setFontFamily = function (value) {
@@ -51,81 +51,11 @@ StyleManager.prototype.setColorScheme = function (value) {
 };
 
 StyleManager.prototype.setBold = function (flag) {
-
-    if (flag) {
-        this.node.style.fontWeight = 'bold';
-    }
-    else {
-        this.node.style.fontWeight = 'normal';
-    }
+    this.node.classList.toggle("bold");
 };
 
 StyleManager.prototype.setItalic = function (flag) {
-
-    if (flag) {
-        this.node.style.fontStyle = 'italic';
-    }
-    else {
-        this.node.style.fontStyle = 'normal';
-    }
-};
-
-StyleManager.prototype.fontSmaller = function () {
-
-    switch (this.fontSize) {
-        case 'small':
-            this.setFontSize('x-small');
-            break;
-
-        case 'medium':
-            this.setFontSize('small');
-            break;
-
-        case 'large':
-            this.setFontSize('medium');
-            break;
-
-        case 'x-large':
-            this.setFontSize('large');
-            break;
-
-        default:
-            break;
-
-    } // end switch
-};
-
-StyleManager.prototype.fontLarger = function () {
-
-    switch (this.fontSize) {
-        case 'x-small':
-            this.setFontSize('small');
-            break;
-
-        case 'small':
-            this.setFontSize('medium');
-            break;
-
-        case 'medium':
-            this.setFontSize('large');
-            break;
-
-        case 'large':
-            this.setFontSize('x-large');
-            break;
-
-        default:
-            break;
-
-    } // end switch
-};
-
-StyleManager.prototype.isMinFontSize = function () {
-    return this.fontSize === 'x-small';
-};
-
-StyleManager.prototype.isMaxFontSize = function () {
-    return this.fontSize === 'x-large';
+    this.node.classList.toggle("italic");
 };
 
 StyleManager.prototype.setOption = function (option, value) {
@@ -153,14 +83,6 @@ StyleManager.prototype.setOption = function (option, value) {
             this.setFontFamily(value);
             break;
 
-        case 'font-smaller':
-            this.fontSmaller();
-            break;
-
-        case 'font-larger':
-            this.fontLarger();
-            break;
-
         case 'font-size':
             this.setFontSize(value);
             break;
@@ -171,10 +93,6 @@ StyleManager.prototype.setOption = function (option, value) {
 
         case 'text-align':
             this.setTextAlign(value);
-            break;
-
-        case 'text-decoration':
-            this.setTextDecoration(value);
             break;
 
         default:

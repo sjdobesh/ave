@@ -1,0 +1,48 @@
+/* All menubar color scheme stylings */
+:root {
+    --light: #fff;
+    --dark: #000;
+    --light-gentle: #eee;
+    --dark-gentle: #555;
+    --light-focus: #d0d0d0;
+    --light-active: #c0c0c0;
+}
+
+/* Light mode (default) */
+body {
+    color: var(--dark);
+}
+
+.has-border, ul[role="menubar"] .has-border[role="menuitem"] {
+    border-color: var(--dark);
+}
+
+.menu a {
+    border-color: var(--dark);
+    background-color: var(--light-gentle);
+    color: var(--dark);
+}
+
+.menu a:hover, .menu a:focus {
+    background-color: var(--light-focus);
+}
+
+.menu a:active {
+    background-color: var(--light-active);
+}
+
+/* Light gentle */
+/* TODO */
+
+/* Dark */
+body.dark {
+    color: var(--light);
+    background-color: var(--dark);
+}
+
+.dark .has-border, .dark ul[role="menubar"] .has-border[role="menuitem"] {
+    border-color: var(--light);
+}
+
+/* Dark gentle */
+/* TODO */
