@@ -88,7 +88,20 @@ function skipAhead(event) {
     video.currentTime = skipTo;
     progressBar.value = skipTo;
     seek.value = skipTo;
-}  
+}
+
+// Video scrubbing and rewinding/fast-forwarding
+
+const scrubRight = document.getElementById("scrubRight");
+const fastForward = document.getElementById("fastForward");
+const rewind = document.getElementById("rewind");
+const scrubLeft = document.getElementById("scrubLeft");
+
+function scrubbing(numFrames) {
+    video.currentTime += numFrames;
+    const time = formatTime(Math.round(video.currentTime));
+    console.log(time);
+}
 
 
 video.addEventListener('loadedmetadata', initializeVideo);
@@ -96,4 +109,8 @@ video.addEventListener('timeupdate', updateTimeElapsed);
 video.addEventListener('timeupdate', updateProgress);
 seek.addEventListener('mousemove', updateSeekTooltip);
 seek.addEventListener('input', skipAhead);
+scrubRight.onclick = function() {scrubbing(1)};
+scrubLeft.onclick = function() {scrubbing(-1)};
+fastForward.onclick = function() {scrubbing(10)};
+rewind.onclick = function() {scrubbing(-10)};
 
