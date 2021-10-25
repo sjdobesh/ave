@@ -26,6 +26,25 @@
   margin-bottom: 0;
 }
 
+/* Navigation Stylings */
+.menu ul {
+  margin: 1em 0;
+  padding: 0;
+  list-style-type: none;
+}
+.menu ul li {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+.menu a {
+  text-decoration: none;
+  padding: .5em 1em;
+  border: 1px solid #000;
+  background-color: #000;
+  color: #fff;
+}
+
 /* Upload Form Stylings */
 .upload-button {
   padding: 5px 20px;
