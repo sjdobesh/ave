@@ -106,14 +106,16 @@ function scrubbing(numFrames) {
     console.log(time);
 }
 
+const SMALL_STEP = 1; // Amount of seconds for a scrub
+const LARGE_STEP = 10; // Amount of seconds for a large step
 
 video.addEventListener('loadedmetadata', initializeVideo);
 video.addEventListener('timeupdate', updateTimeElapsed);
 video.addEventListener('timeupdate', updateProgress);
 seek.addEventListener('mousemove', updateSeekTooltip);
 seek.addEventListener('input', skipAhead);
-scrubRight.onclick = function() {scrubbing(1)};
-scrubLeft.onclick = function() {scrubbing(-1)};
-fastForward.onclick = function() {scrubbing(10)};
-rewind.onclick = function() {scrubbing(-10)};
+scrubRight.onclick = function() {scrubbing(SMALL_STEP)};
+scrubLeft.onclick = function() {scrubbing(-1 * SMALL_STEP)};
+fastForward.onclick = function() {scrubbing(LARGE_STEP)};
+rewind.onclick = function() {scrubbing(-1 * LARGE_STEP)};
 
