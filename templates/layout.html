@@ -17,6 +17,7 @@
 
 <body>
     <div id="wrapper">
+        <a class="screen-reader-text skip-link" href="#content">Skip to Content</a>
         <header>
             <h1>{% block h1 %}{% endblock %}</h1>
             <hr aria-hidden="true">
@@ -112,7 +113,7 @@
         </div>
         <hr aria-hidden="true">
 
-        <main>
+        <main id="content">
             {% block main %}
             {% endblock %}
         </main>
