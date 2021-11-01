@@ -55,14 +55,17 @@ ul.inline li {
   display: inline-block;
 }
 
-/* Upload Form Stylings */
-.upload-button {
+/* Button Stylings */
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+.large-button {
   padding: 5px 20px;
   font-size: 1em;
   margin-top: .5em;
-}
-.upload-button, input[type="file"] {
-  cursor: pointer;
 }
 
 /* Misc Stylings */
