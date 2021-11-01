@@ -23,7 +23,7 @@
   margin-bottom: 0;
 }
 
-/* Navigation Stylings */
+/* Menu Stylings */
 .menu ul {
   margin: 1em 0;
   padding: 0;
@@ -43,6 +43,16 @@
 .menu a:focus {
   outline-width: 2px;
   outline-style: dashed;
+}
+
+/* Lists */
+ul.inline {
+  margin: .5em 0 0 0;
+  padding: 0;
+}
+ul.inline li {
+  list-style-type: none;
+  display: inline-block;
 }
 
 /* Upload Form Stylings */
