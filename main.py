@@ -1,5 +1,5 @@
 import os
-from flask import Flask, flash, render_template, request, send_file, send_from_directory
+from flask import Flask, flash, render_template, request, send_file, send_from_directory, url_for
 from flask_uploads import UploadSet, configure_uploads
 from werkzeug.utils import redirect, secure_filename
 from markupsafe import escape
@@ -33,12 +33,11 @@ def send_uploaded_file(filename=''):
     return send_from_directory(app.config["UPLOADED_VIDEOS_DEST"], escape(filename))
 
 
+@app.route('/uploads/<filename>', methods=['POST'])
+def download_file(filename=''):
+    return send_from_directory(app.config["UPLOADED_VIDEOS_DEST"], filename, as_attachment=True)
+
+
 @app.route('/about')
 def about():
     return render_template('about.html')
-
-
-@app.route('/download')
-def download(filename=''):
-    path = "static/uploads" + filename  # <- security concerns
-    return send_file(path, as_attachment=True)

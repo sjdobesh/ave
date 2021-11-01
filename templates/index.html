@@ -72,10 +72,11 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
     <nav aria-labelledby="download-heading">
         <h3 class="screen-reader-text" id="download-heading">Download</h3>
         <ul class="inline">
-            <li><button id="delete" class="large-button" disabled>Download</button></li>
+          <form method="POST" action="{{ url_for('download_file', filename=uploaded_video) }}"
+            <li><button id="download" class="large-button"> Download</button></li>
+        </form>
         </ul>
     </nav>
-    
 </div>
 <script src="{{ url_for('static', filename='scripts/videoPlayer.js')  }}"></script>
 {% else %}
