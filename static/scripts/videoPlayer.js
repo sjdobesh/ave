@@ -43,16 +43,14 @@ function initializeVideo() {
     seek.setAttribute('max', videoDuration);
     progressBar.setAttribute('max', videoDuration);
     const time = formatTime(videoDuration);
-    duration.innerText = `${time.minutes}:${time.seconds}`;
-    duration.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`)
+    duration.innerText = `${time.minutes}:${time.seconds}.${time.milliseconds}`;
 }  
 
 // updateTimeElapsed indicates how far through the video
 // the current playback is
 function updateTimeElapsed() {
     const time = formatTime(video.currentTime.toFixed(2));
-    timeElapsed.innerText = `${time.minutes}:${time.seconds}`;
-    timeElapsed.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`)
+    timeElapsed.innerText = `${time.minutes}:${time.seconds}.${time.milliseconds}`;
 }
 
 // updateProgress indicates how far through the video
