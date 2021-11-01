@@ -88,6 +88,12 @@ a:focus, a:hover {
 }
 
 /* Video progress bar */
+video {
+  height: 80%;
+}
+video, .video-progress {
+  width: 80%;
+}
 .video-progress {
   position: relative;
   height: 8.4px;
