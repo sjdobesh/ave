@@ -88,12 +88,12 @@ a:focus, a:hover {
   word-wrap: normal !important;
 }
 
+/* Video progress bar */
 .video-progress {
   position: relative;
   height: 8.4px;
   margin-bottom: 10px;
 }
-
 progress {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -105,22 +105,18 @@ progress {
   position: absolute;
   top: 0;
 }
-
 progress::-webkit-progress-bar {
   background-color: #474545;
   border-radius: 2px;
 }
-
 progress::-webkit-progress-value {
   background: var(--youtube-red);
   border-radius: 2px;
 }
-
 progress::-moz-progress-bar {
   border: 1px solid var(--youtube-red);
   background: var(--youtube-red);
 }
-
 .seek {
   position: absolute;
   top: 0;
@@ -128,11 +124,9 @@ progress::-moz-progress-bar {
   cursor: pointer;
   margin: 0;
 }
-
 .seek:hover+.seek-tooltip {
   display: block;
 }
-
 .seek-tooltip {
   display: none;
   position: absolute;
@@ -146,6 +140,7 @@ progress::-moz-progress-bar {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
+/* Media Queries */
 @media only screen and (max-width: 1024px) {
   .row.col2 {
     grid-template-columns: 1fr;
