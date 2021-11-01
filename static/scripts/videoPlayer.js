@@ -91,12 +91,12 @@ function skipAhead(event) {
 
 // Video scrubbing and rewinding/fast-forwarding
 
-const scrubRight = document.getElementById("scrubRight");
-const fastForward = document.getElementById("fastForward");
-const rewind = document.getElementById("rewind");
-const scrubLeft = document.getElementById("scrubLeft");
+const smallRightStep = document.getElementById("smallRightStep");
+const largeRightStep = document.getElementById("largeRightStep");
+const largeLeftStep = document.getElementById("largeLeftStep");
+const smallLeftStep = document.getElementById("smallLeftStep");
 
-function scrubbing(numFrames) {
+function movePlayhead(numFrames) {
     video.currentTime += numFrames;
     const time = formatTime(video.currentTime.toFixed(2));
     console.log(time);
@@ -110,8 +110,8 @@ video.addEventListener('timeupdate', updateTimeElapsed);
 video.addEventListener('timeupdate', updateProgress);
 seek.addEventListener('mousemove', updateSeekTooltip);
 seek.addEventListener('input', skipAhead);
-scrubRight.onclick = function() {scrubbing(SMALL_STEP)};
-scrubLeft.onclick = function() {scrubbing(-1 * SMALL_STEP)};
-fastForward.onclick = function() {scrubbing(LARGE_STEP)};
-rewind.onclick = function() {scrubbing(-1 * LARGE_STEP)};
+smallRightStep.onclick = function() {movePlayhead(SMALL_STEP)};
+smallLeftStep.onclick = function() {movePlayhead(-1 * SMALL_STEP)};
+largeRightStep.onclick = function() {movePlayhead(LARGE_STEP)};
+largeLeftStep.onclick = function() {movePlayhead(-1 * LARGE_STEP)};
 
