@@ -26,19 +26,20 @@ const duration = document.getElementById('duration');
 const progressBar = document.getElementById('progress-bar');
 const seek = document.getElementById('seek');
 
-function formatTime(timeInSeconds) {
-    const result = new Date(timeInSeconds * 1000).toISOString().substr(11, 8);
+function formatTime(timeInSeconds) { // eg 76.4193746
+    const result = new Date(timeInSeconds * 1000).toISOString().substr(11, 11);
 
     return {
         minutes: result.substr(3, 2),
         seconds: result.substr(6, 2),
+        milliseconds: result.substr(9, 2),
     };
 }
 
 // initializeVideo sets the video duration, and maximum value of the
 // progressBar
 function initializeVideo() {
-    const videoDuration = Math.round(video.duration);
+    const videoDuration = video.duration.toFixed(2);
     seek.setAttribute('max', videoDuration);
     progressBar.setAttribute('max', videoDuration);
     const time = formatTime(videoDuration);
@@ -49,7 +50,7 @@ function initializeVideo() {
 // updateTimeElapsed indicates how far through the video
 // the current playback is
 function updateTimeElapsed() {
-    const time = formatTime(Math.round(video.currentTime));
+    const time = formatTime(video.currentTime.toFixed(2));
     timeElapsed.innerText = `${time.minutes}:${time.seconds}`;
     timeElapsed.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`)
 }
@@ -57,14 +58,16 @@ function updateTimeElapsed() {
 // updateProgress indicates how far through the video
 // the current playback is by updating the progress bar
 function updateProgress() {
-    seek.value = Math.floor(video.currentTime);
-    progressBar.value = Math.floor(video.currentTime);
+    seek.value = video.currentTime.toFixed(2);
+    progressBar.value = video.currentTime.toFixed(2);
 } 
 
 // log time to Console for debugging
 function logCurrentTime() {
-    const time = formatTime(Math.round(video.currentTime));
+    const time = formatTime(video.currentTime.toFixed(2));
     console.log(time);
+    // console.log("video.currentTime: " + video.currentTime); // eg 55.585074
+    // console.log("Math.round(video.currentTime): " + Math.round(video.currentTime)); //eg 56
 }
 
 const seekTooltip = document.getElementById('seek-tooltip');
@@ -73,7 +76,7 @@ const seekTooltip = document.getElementById('seek-tooltip');
 // roughly work out what point in the video the user will skip to if
 // the progress bar is clicked at that point
 function updateSeekTooltip(event) {
-    const skipTo = Math.round((event.offsetX / event.target.clientWidth) * parseInt(event.target.getAttribute('max'), 10));
+    const skipTo = ((event.offsetX / event.target.clientWidth) * parseInt(event.target.getAttribute('max'), 10)).toFixed(2);
     seek.setAttribute('data-seek', skipTo)
     const t = formatTime(skipTo);
     seekTooltip.textContent = `${t.minutes}:${t.seconds}`;
