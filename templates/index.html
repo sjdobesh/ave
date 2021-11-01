@@ -37,10 +37,9 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
 <div class="videoControls hidden" id="videoControls">
 
     <div class="video-progress">
-        <progress id="progress-bar" value="0" min="0"></progress>
-        <label for="seek" class="screen-reader-text">Video Timeline</label>
-        <input class="seek" id="seek" value="0" min="0" type="range" step="0.1">
-        <div class="seek-tooltip" id="seek-tooltip">00:00</div>
+        <progress id="progress-bar" value="0" min="0" aria-hidden="true"></progress>
+        <input class="seek" id="seek" value="0" min="0" type="range" step="0.1" aria-label="Video Timeline">
+        <div class="seek-tooltip" id="seek-tooltip" aria-hidden="true">00:00</div>
     </div>
 
     <div class="time">
@@ -59,7 +58,7 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
             <li><button id="smallLeftStep">-1<span aria-hidden="true">s</span><span class="screen-reader-text">second</span></button></li>
             <li><button id="smallRightStep">+1<span aria-hidden="true">s</span><span class="screen-reader-text">second</span></button></li>
             <li><button id="largeRightStep">+10<span aria-hidden="true">s</span><span class="screen-reader-text">seconds</span></button></li>
-            <li><button id="logTime" onclick="logCurrentTime()">Log Time to Console</button></li>
+            <!-- <li><button id="logTime" onclick="logCurrentTime()">Log Time to Console</button></li> -->
         </ul>
     </nav>
     <nav aria-labelledby="edit-heading">
