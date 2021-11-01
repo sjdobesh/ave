@@ -64,8 +64,6 @@ function updateProgress() {
 function logCurrentTime() {
     const time = formatTime(video.currentTime.toFixed(2));
     console.log(time);
-    // console.log("video.currentTime: " + video.currentTime); // eg 55.585074
-    // console.log("Math.round(video.currentTime): " + Math.round(video.currentTime)); //eg 56
 }
 
 const seekTooltip = document.getElementById('seek-tooltip');
@@ -100,7 +98,7 @@ const scrubLeft = document.getElementById("scrubLeft");
 
 function scrubbing(numFrames) {
     video.currentTime += numFrames;
-    const time = formatTime(Math.round(video.currentTime));
+    const time = formatTime(video.currentTime.toFixed(2));
     console.log(time);
 }
 
