@@ -30,11 +30,36 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
 {% block main %}
 
 <h2>{% if uploaded_video %}Video: {{uploaded_video}}{% else %}Upload Video{% endif %}</h2>
-
 {% if uploaded_video %}
-<video height="240" width="360" controls>
+<video id="videoPlayer" height="80%" width="80%" preload="metadata">
     <source src="{{ url_for('send_uploaded_file', filename=uploaded_video) }}" type="video/mp4">
 </video>
+<div class="videoControls hidden" id="videoControls">
+
+    <div class="video-progress">
+        <progress id="progress-bar" value="0" min="0"></progress>
+        <input class="seek" id="seek" value="0" min="0" type="range" step="0.1">
+        <div class="seek-tooltip" id="seek-tooltip">00:00</div>
+    </div>
+
+    <div class="time">
+        <!-- TODO accessible label for video progress/duration -->
+        <time id="time-elapsed">00:00.00</time>
+        <span> / </span>
+        <time id="duration">00:00.00</time>
+    </div>
+
+
+    <button id="largeLeftStep">-10<span aria-hidden="true">s</span><span class="screen-reader-text">seconds</span></button>
+    <button id="smallLeftStep">-1<span aria-hidden="true">s</span><span class="screen-reader-text">seconds</span></button>
+    <button id="playButton" onclick="togglePlay()">Play</button>
+    <button id="playSelection" disabled>Play Selection</button>
+    <button id="smallRightStep">+1<span aria-hidden="true">s</span><span class="screen-reader-text">seconds</span></button>
+    <button id="largeRightStep">+10<span aria-hidden="true">s</span><span class="screen-reader-text">seconds</span></button>
+
+    <button id="logTime" onclick="logCurrentTime()">Log Time to Console</button>
+</div>
+<script src="{{ url_for('static', filename='scripts/videoPlayer.js')  }}"></script>
 {% else %}
 <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload') }}">
     <div>
