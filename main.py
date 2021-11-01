@@ -6,7 +6,7 @@ from markupsafe import escape
 
 
 app = Flask(__name__)
-extensions = ('mp4')  # restricting to mp4 for now
+extensions = ('mp4')  # restricting to mp4 for now. If updating this, also update HTML
 videos = UploadSet("videos", extensions)
 app.config["UPLOADED_VIDEOS_DEST"] = "static/uploads"
 app.config["SECRET_KEY"] = os.urandom(24)
@@ -23,7 +23,7 @@ def upload():
             flash("Video " + videoname + " saved successfully.")
             return render_template('index.html', uploaded_video=escape(videoname))
         except:
-            flash("Incorrect file type, try again")
+            flash("Incorrect file type. Please upload an MP4 file.")
             return render_template('index.html')
     return render_template('index.html')
 

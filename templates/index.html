@@ -31,16 +31,15 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
 
 <h2>{% if uploaded_video %}Video: {{uploaded_video}}{% else %}Upload Video{% endif %}</h2>
 {% if uploaded_video %}
-<video id="videoPlayer" height="80%" width="80%" preload="metadata" tabindex="-1" disablePictureInPicture>
+<video id="videoPlayer" preload="metadata" tabindex="-1" disablePictureInPicture>
     <source src="{{ url_for('send_uploaded_file', filename=uploaded_video) }}" type="video/mp4">
 </video>
 <div class="videoControls hidden" id="videoControls">
 
     <div class="video-progress">
-        <progress id="progress-bar" value="0" min="0"></progress>
-        <label for="seek" class="screen-reader-text">Video Timeline</label>
-        <input class="seek" id="seek" value="0" min="0" type="range" step="0.1">
-        <div class="seek-tooltip" id="seek-tooltip">00:00</div>
+        <progress id="progress-bar" value="0" min="0" aria-hidden="true"></progress>
+        <input class="seek" id="seek" value="0" min="0" type="range" step="0.1" aria-label="Video Timeline">
+        <div class="seek-tooltip" id="seek-tooltip" aria-hidden="true">00:00</div>
     </div>
 
     <div class="time">
@@ -59,7 +58,7 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
             <li><button id="smallLeftStep">-1<span aria-hidden="true">s</span><span class="screen-reader-text">second</span></button></li>
             <li><button id="smallRightStep">+1<span aria-hidden="true">s</span><span class="screen-reader-text">second</span></button></li>
             <li><button id="largeRightStep">+10<span aria-hidden="true">s</span><span class="screen-reader-text">seconds</span></button></li>
-            <li><button id="logTime" onclick="logCurrentTime()">Log Time to Console</button></li>
+            <!-- <li><button id="logTime" onclick="logCurrentTime()">Log Time to Console</button></li> -->
         </ul>
     </nav>
     <nav aria-labelledby="edit-heading">
@@ -82,8 +81,8 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
 {% else %}
 <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload') }}">
     <div>
-        <label for="video">Upload a video: </label>
-        <input type="file" id="video" name="video" required>
+        <label for="video">Upload a video &lpar;MP4&rpar;: </label>
+        <input type="file" id="video" name="video" required accept=".mp4">
     </div>
     <button type="submit" class="large-button">Upload</button>
 </form>
