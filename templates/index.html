@@ -81,7 +81,7 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
 {% else %}
 <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload') }}">
     <div>
-        <label for="video">Upload a video: </label>
+        <label for="video">Upload a video &lpar;MP4&rpar;: </label>
         <input type="file" id="video" name="video" required accept=".mp4">
     </div>
     <button type="submit" class="large-button">Upload</button>
