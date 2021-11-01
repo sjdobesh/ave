@@ -7,152 +7,77 @@
 *   Desc:   Styling functions for changing the style of an item
 */
 
-const borders = "has-border";
-var borderElements;
-var StyleManager = function (id) {
-    this.node = document.getElementById(id);
-    this.fontSize = 'medium';
-    borderElements = document.getElementsByClassName(borders);
+var StyleManager = function (element) {
+    this.node = document.getElementsByTagName(element)[0];
 };
 
 StyleManager.prototype.setFontFamily = function (value) {
-    this.node.style.fontFamily = value;
-};
-
-StyleManager.prototype.setTextDecoration = function (value) {
-    this.node.style.textDecoration = value;
+    this.node.classList.remove("serif");
+    this.node.classList.remove("monospace");
+    this.node.classList.remove("opendyslexic");
+    switch (value.trim()) {
+        case 'serif':
+            this.node.classList.add("serif");
+            break;
+        
+        case 'monospace':
+            this.node.classList.add("monospace");
+            break;
+    
+        case 'opendyslexic':
+            this.node.classList.add("opendyslexic");
+            break;
+        
+        default: // sans-serif
+            break;
+    }
 };
 
 StyleManager.prototype.setTextAlign = function (value) {
-    this.node.style.textAlign = value;
-};
-
-StyleManager.prototype.setFontSize = function (value) {
-    this.fontSize = value;
-    this.node.style.fontSize = value;
-};
-
-StyleManager.prototype.setColor = function (value) {
-    this.node.style.color = value;
-};
-
-const light = '#fff';
-const dark = '#000';
-const lightGentle = '#eee';
-const darkGentle = '#555';
-StyleManager.prototype.setColorScheme = function (value) {
+    this.node.classList.remove("center-align");
+    this.node.classList.remove("right-align");
     switch (value.trim()) {
-        case 'light mode':
-            this.node.style.color = dark;
-            this.node.style.background = 'transparent';
-            this.setBorders(dark);
+        case 'center':
+            this.node.classList.add("center-align");
             break;
+        
+        case 'right':
+            this.node.classList.add("right-align");
+            break;
+        
+        default: // Left align
+            break;
+    }
+};
 
+StyleManager.prototype.setColorScheme = function (value) {
+    this.node.classList.remove("light-gentle");
+    this.node.classList.remove("dark");
+    this.node.classList.remove("dark-gentle");
+    switch (value.trim()) {
         case 'light mode (gentle)':
-            this.node.style.color = darkGentle;
-            this.node.style.background = lightGentle;
-            this.setBorders(darkGentle);
+            this.node.classList.add("light-gentle");
             break;
         
         case 'dark mode':
-            this.node.style.color = light;
-            this.node.style.background = dark;
-            this.setBorders(light);
+            this.node.classList.add("dark");
             break;
     
         case 'dark mode (gentle)':
-            this.node.style.color = lightGentle;
-            this.node.style.background = darkGentle;
-            this.setBorders(lightGentle);
+            this.node.classList.add("dark-gentle");
             break;
         
-        default:
+        default: // Light mode
             break;
     }
 };
 
-StyleManager.prototype.setBorders = function(value) {
-    for(var i = 0; i < borderElements.length; i++) {
-        borderElements[i].style.borderColor = value;
-    }
-}
-
 StyleManager.prototype.setBold = function (flag) {
-
-    if (flag) {
-        this.node.style.fontWeight = 'bold';
-    }
-    else {
-        this.node.style.fontWeight = 'normal';
-    }
+    this.node.classList.toggle("bold");
 };
 
 StyleManager.prototype.setItalic = function (flag) {
-
-    if (flag) {
-        this.node.style.fontStyle = 'italic';
-    }
-    else {
-        this.node.style.fontStyle = 'normal';
-    }
-};
-
-StyleManager.prototype.fontSmaller = function () {
-
-    switch (this.fontSize) {
-        case 'small':
-            this.setFontSize('x-small');
-            break;
-
-        case 'medium':
-            this.setFontSize('small');
-            break;
-
-        case 'large':
-            this.setFontSize('medium');
-            break;
-
-        case 'x-large':
-            this.setFontSize('large');
-            break;
-
-        default:
-            break;
-
-    } // end switch
-};
-
-StyleManager.prototype.fontLarger = function () {
-
-    switch (this.fontSize) {
-        case 'x-small':
-            this.setFontSize('small');
-            break;
-
-        case 'small':
-            this.setFontSize('medium');
-            break;
-
-        case 'medium':
-            this.setFontSize('large');
-            break;
-
-        case 'large':
-            this.setFontSize('x-large');
-            break;
-
-        default:
-            break;
-
-    } // end switch
-};
-
-StyleManager.prototype.isMinFontSize = function () {
-    return this.fontSize === 'x-small';
-};
-
-StyleManager.prototype.isMaxFontSize = function () {
-    return this.fontSize === 'x-large';
+    this.node.classList.toggle("italic");
 };
 
 StyleManager.prototype.setOption = function (option, value) {
@@ -180,14 +105,6 @@ StyleManager.prototype.setOption = function (option, value) {
             this.setFontFamily(value);
             break;
 
-        case 'font-smaller':
-            this.fontSmaller();
-            break;
-
-        case 'font-larger':
-            this.fontLarger();
-            break;
-
         case 'font-size':
             this.setFontSize(value);
             break;
@@ -198,10 +115,6 @@ StyleManager.prototype.setOption = function (option, value) {
 
         case 'text-align':
             this.setTextAlign(value);
-            break;
-
-        case 'text-decoration':
-            this.setTextDecoration(value);
             break;
 
         default:

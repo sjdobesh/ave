@@ -1,9 +1,12 @@
-/* Import OpenDyslexic font */
-@import url("https://db.onlinewebfonts.com/c/66a105c2c6d3ca4bf2c6fa8b8e0df1bf?family=OpenDyslexic");
-/* Styling */
+/* Important: All color stylings should go in colors.css */
+@import url("a11y-options.css");
 
+/* Styling */
 #wrapper {
-  font-family: sans-serif;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1024px;
 }
 
 /* Row stylings */
@@ -20,27 +23,126 @@
   margin-bottom: 0;
 }
 
+/* Menu Stylings */
+.menu ul {
+  margin: 1em 0;
+  padding: 0;
+  list-style-type: none;
+}
+.menu ul li {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+.menu a {
+  text-decoration: none;
+  padding: .5em 1em;
+  border-width: 2px;
+  border-style: solid;
+}
+.menu a:focus {
+  outline-width: 2px;
+  outline-style: dashed;
+}
+
+/* Lists */
+ul.inline {
+  margin: .5em 0 0 0;
+  padding: 0;
+}
+ul.inline li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+/* Upload Form Stylings */
+.upload-button {
+  padding: 5px 20px;
+  font-size: 1em;
+  margin-top: .5em;
+}
+.upload-button, input[type="file"] {
+  cursor: pointer;
+}
+
 /* Misc Stylings */
 .has-border, ul[role="menubar"] .has-border[role="menuitem"] {
-  border: 2px solid black;
+  border-width: 2px;
+  border-style: solid;
+}
+.margin-left-0, .row.col2 .margin-left-0 {
+  margin-left: 0;
+}
+.margin-right-0, .row.col2 .margin-right-0 {
+  margin-right: 0;
+}
+#menubar1 li {
+  cursor: pointer;
+}
+a:focus, a:hover {
+  outline-width: 2px;
+  outline-style: dashed;
 }
 
-/* Text meant only for screen readers. Source: https://make.wordpress.org/accessibility/handbook/markup/the-css-class-screen-reader-text/ */
-.screen-reader-text {
-  border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
+/* Video progress bar */
+.video-progress {
+  position: relative;
+  height: 8.4px;
+  margin-bottom: 10px;
+}
+progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 2px;
+  width: 100%;
+  height: 8.4px;
+  pointer-events: none;
   position: absolute;
-  width: 1px;
-  word-wrap: normal !important;
+  top: 0;
+}
+progress::-webkit-progress-bar {
+  background-color: #474545;
+  border-radius: 2px;
+}
+progress::-webkit-progress-value {
+  background: var(--youtube-red);
+  border-radius: 2px;
+}
+progress::-moz-progress-bar {
+  border: 1px solid var(--youtube-red);
+  background: var(--youtube-red);
+}
+.seek {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  cursor: pointer;
+  margin: 0;
+}
+.seek:hover+.seek-tooltip {
+  display: block;
+}
+.seek-tooltip {
+  display: none;
+  position: absolute;
+  top: -50px;
+  margin-left: -20px;
+  font-size: 12px;
+  padding: 3px;
+  content: attr(data-title);
+  font-weight: bold;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
+/* Media Queries */
 @media only screen and (max-width: 1024px) {
   .row.col2 {
     grid-template-columns: 1fr;
+  }
+  .row.col2 div, .row.col2 nav {
+    margin-left: 0;
+    margin-right: 0;
   }
 }

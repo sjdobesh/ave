@@ -21,6 +21,7 @@ Requires Python 3 and Flask.
 
 Install flask and Flask-Reuploaded with pip (or conda) in a virtual environment.
 Note that for Conda, you will have to install pip to the Conda environment, and then call pip from the environments bin folder. The path to the folder `anaconda` may be different on your system, but it installs to your home directory by default.
+
 #### Linux
 
 ##### Pip

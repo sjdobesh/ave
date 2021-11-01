@@ -6,3 +6,8 @@ __pycache__
 venv/
 env/
 .vscode/settings.json
+
+# file uploads
+*.mp4
+*.mov
+*.mvk

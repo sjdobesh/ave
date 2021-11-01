@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block title %}About{% endblock %}
+{% block h1 %}About - Accessible Video Editor{% endblock %}
+{% block link1href %}/{% endblock %}
+{% block link1text %}Editor{% endblock %}
+
+<!-- TODO: Figure out how to make these considered alerts to screen reader users.
+Setting an alert role didn't seem to help; should the alerts go at the top of the page? Decide later. -->
+{% block col1role %}navigation{% endblock %}
+{% block col1attributes %}aria-label="Overview"{% endblock %}
+{% block col1h2 %}Overview{% endblock %}
+{% block col1content %}
+<ol>
+    <li><a href="#about">About</a></li>
+    <li><a href="#use">Usage</a></li>
+</ol>
+{% endblock %}
+
+
+{% block main %}
+<h2 id="about">About AVE</h2>
+<p>Accessible Video Editor (AVE) was made by ...</p>
+<h2 id="use">Using AVE</h2>
+<p>Here are various things to use on AVE</p>
+<h3>Setting Up</h3>
+<p>For information on setting up AVE in your own computer, refer to the README in the GitHub.</p>
+<h3>Uploading a Video</h3>
+<p>Here is how to upload a video</p>
+<h3>Trimming a Video</h3>
+<p>Here is how to trim a video</p>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+/* Import OpenDyslexic font */
+@import url("https://db.onlinewebfonts.com/c/66a105c2c6d3ca4bf2c6fa8b8e0df1bf?family=OpenDyslexic");
+/* Import color stylings (connected to color scheme) */
+@import url("colors.css");
+/* Font Adjustments */
+body {
+    font-family: sans-serif;
+}
+body.bold {
+    font-weight: bold;
+}
+body.italic {
+    font-style: italic;
+}
+body.serif {
+    font-family: serif;
+}
+body.monospace {
+    font-family: monospace;
+}
+body.opendyslexic {
+    font-family: 'OpenDyslexic';
+}
+body.center-align {
+    text-align: center;
+}
+body.right-align {
+    text-align: right;
+}
+/* Screen reader only text */
+/* Text meant only for screen readers. Source: https://make.wordpress.org/accessibility/handbook/markup/the-css-class-screen-reader-text/ */
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    word-wrap: normal !important;
+}
+.screen-reader-text.skip-link:focus {
+    background-color: #eee;
+    clip: auto !important;
+    clip-path: none;
+    color: #444;
+    display: block;
+    font-size: 1em;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+}
