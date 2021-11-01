@@ -28,3 +28,7 @@ def upload():
 @app.route('/uploads/<filename>')
 def send_uploaded_file(filename=''):
     return send_from_directory(app.config["UPLOADED_VIDEOS_DEST"], escape(filename))
+
+@app.route('/about')
+def about():
+    return render_template('about.html')

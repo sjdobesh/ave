@@ -1,10 +1,7 @@
-/* Import OpenDyslexic font */
-@import url("https://db.onlinewebfonts.com/c/66a105c2c6d3ca4bf2c6fa8b8e0df1bf?family=OpenDyslexic");
-/* Styling */
+/* Important: All color stylings should go in colors.css */
+@import url("a11y-options.css");
 
-#body {
-  font-family: sans-serif;
-}
+/* Styling */
 #wrapper {
   width: 80%;
   margin-left: auto;
@@ -26,6 +23,28 @@
   margin-bottom: 0;
 }
 
+/* Navigation Stylings */
+.menu ul {
+  margin: 1em 0;
+  padding: 0;
+  list-style-type: none;
+}
+.menu ul li {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+.menu a {
+  text-decoration: none;
+  padding: .5em 1em;
+  border-width: 2px;
+  border-style: solid;
+}
+.menu a:focus {
+  outline-width: 2px;
+  outline-style: dashed;
+}
+
 /* Upload Form Stylings */
 .upload-button {
   padding: 5px 20px;
@@ -38,13 +57,21 @@
 
 /* Misc Stylings */
 .has-border, ul[role="menubar"] .has-border[role="menuitem"] {
-  border: 2px solid black;
+  border-width: 2px;
+  border-style: solid;
 }
 .margin-left-0, .row.col2 .margin-left-0 {
   margin-left: 0;
 }
 .margin-right-0, .row.col2 .margin-right-0 {
   margin-right: 0;
+}
+#menubar1 li {
+  cursor: pointer;
+}
+a:focus, a:hover {
+  outline-width: 2px;
+  outline-style: dashed;
 }
 
 /* Text meant only for screen readers. Source: https://make.wordpress.org/accessibility/handbook/markup/the-css-class-screen-reader-text/ */

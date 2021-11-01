@@ -1,0 +1,29 @@
+/* Import OpenDyslexic font */
+@import url("https://db.onlinewebfonts.com/c/66a105c2c6d3ca4bf2c6fa8b8e0df1bf?family=OpenDyslexic");
+/* Import color stylings (connected to color scheme) */
+@import url("colors.css");
+
+body {
+    font-family: sans-serif;
+}
+body.bold {
+    font-weight: bold;
+}
+body.italic {
+    font-style: italic;
+}
+body.serif {
+    font-family: serif;
+}
+body.monospace {
+    font-family: monospace;
+}
+body.opendyslexic {
+    font-family: 'OpenDyslexic';
+}
+body.center-align {
+    text-align: center;
+}
+body.right-align {
+    text-align: right;
+}

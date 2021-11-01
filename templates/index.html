@@ -1,166 +1,72 @@
 <!--
-
 Citations:
-The ul menubars are (or are based on) the following w3 code: https://www.w3.org/TR/wai-aria-practices/examples/menubar/menubar-2/menubar-2.html
-
-
+The ul menubars are based on the following w3 code: https://www.w3.org/TR/wai-aria-practices/examples/menubar/menubar-2/menubar-2.html
 -->
-<!DOCTYPE html>
-<html lang="en">
+{% extends "layout.html" %}
+{% block title %}Homepage{% endblock %}
+{% block h1 %}Accessible Video Editor{% if uploaded_video %}: {{uploaded_video}} {% endif %}{% endblock %}
+{% block link1href %}/about{% endblock %}
+{% block link1text %}About{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')  }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/menubarAction.css')  }}">
-    <title>Accessible Video Editor</title>
+<!-- TODO: Figure out how to make these considered alerts to screen reader users.
+Setting an alert role didn't seem to help; should the alerts go at the top of the page? Decide later. -->
+{% block col1role %}alert{% endblock %}
+{% block col1h2 %}Alerts{% endblock %}
+{% block col1content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class="flashes">
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>There are no alerts to display.</p>
+{% endif %}
+{% endwith %}
+{% endblock %}
 
-    <script src="{{ url_for('static', filename='scripts/MenubarAction.js')  }}"></script>
-    <script src="{{ url_for('static', filename='scripts/MenubarItemAction.js')  }}"></script>
-    <script src="{{ url_for('static', filename='scripts/PopupMenuAction.js')  }}"></script>
-    <script src="{{ url_for('static', filename='scripts/PopupMenuActionItem.js')  }}"></script>
-    <script src="{{ url_for('static', filename='scripts/menubar-2-init.js')  }}"></script>
-    <script src="{{ url_for('static', filename='scripts/styleManager.js')  }}"></script>
-</head>
 
-<body id="body">
-    <div id="wrapper">
-        <header>
-            <h1>Accessible Video Editor{% if uploaded_video %}: {{uploaded_video}} {% endif %}</h1>
-            <hr aria-hidden="true">
-        </header>
-        <!-- Row with columns -->
-        <!-- TODO: Discuss single or multiple navigations -->
-        <div class="row col2">
-            <!--row with 2 columns-->
-            <div class="has-border margin-left-0"> <!--column 1 of 2-->
-                <!-- TODO: Figure out how to make these considered alerts to screen reader users.
-                        Setting an alert role didn't seem to help; should the alerts go at the top of the page? Decide later. -->
-                <h2>Alerts</h2>
-                {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                <ul class="flashes">
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-                </ul>
-                {% else %}
-                <p>There are no alerts to display.</p>
-                {% endif %}
-                {% endwith %}
-            </div>
-            <nav class="has-border margin-right-0" aria-labelledby="a11y-options"> <!--column 2 of 2-->
-                <h2 id="a11y-options">Accessibility Options</h2>
-                <hr aria-hidden="true">
-                <ul id="menubar1" role="menubar" aria-labelledby="a11y-options">
-                    <li role="none">
-                        <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
-                            Color Scheme
-                        </a>
-                        <ul role="group" aria-label="Color Scheme" data-option="color-scheme">
-                            <li role="menuitemradio" aria-checked="true">
-                                Light mode
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                Light mode (Gentle)
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                Dark mode
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                Dark mode (Gentle)
-                            </li>
-                        </ul>
-                    </li>
-                    <li role="none">
-                        <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
-                            Font
-                        </a>
-                        <ul role="menu" data-option="font-family" aria-label="Font">
-                            <li role="menuitemradio" aria-checked="true">
-                                Sans-serif
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                Serif
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                Monospace
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                OpenDyslexic
-                            </li>
-                            <li role="separator"></li>
-                            <li role="menuitemcheckbox" data-option="font-bold" aria-checked="false">
-                                Bold
-                            </li>
-                            <li role="menuitemcheckbox" data-option="font-italic" aria-checked="false">
-                                Italic
-                            </li>
-                        </ul>
-                    </li>
-                    <li role="none">
-                        <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
-                            Text Align
-                        </a>
-                        <ul role="menu" data-option="text-align" aria-label="Text Align">
-                            <li role="menuitemradio" aria-checked="true">
-                                Left
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                Center
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                Right
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <main>
-            <hr aria-hidden="true">
-            <h2>{% if uploaded_video %}Video: {{uploaded_video}}{% else %}Upload Video{% endif %}</h2>
-            
-            {% if uploaded_video %}
-            <video id="videoPlayer" height="80%" width="80%" preload="metadata">
-                <source src="{{ url_for('send_uploaded_file', filename=uploaded_video) }}" type="video/mp4">
-            </video>
-            <div class="videoControls hidden" id="videoControls">
-                
-                <div class="video-progress">
-                    <progress id="progress-bar" value="0" min="0"></progress>
-                    <input class="seek" id="seek" value="0" min="0" type="range" step="0.1">
-                    <div class="seek-tooltip" id="seek-tooltip">00:00</div>
-                </div>
-                
-                <div class="time">
-                    <!-- TODO accessible label for video progress/duration -->
-                    <time id="time-elapsed">00:00.00</time>
-                    <span> / </span>
-                    <time id="duration">00:00.00</time>
-                </div>
-                
-                
-                <button id="largeLeftStep">-10<span aria-hidden="true">s</span><span class="screen-reader-text">seconds</span></button>
-                <button id="smallLeftStep">-1<span aria-hidden="true">s</span><span class="screen-reader-text">seconds</span></button>
-                <button id="playButton" onclick="togglePlay()">Play</button>
-                <button id="playSelection" disabled>Play Selection</button>
-                <button id="smallRightStep">+1<span aria-hidden="true">s</span><span class="screen-reader-text">seconds</span></button>
-                <button id="largeRightStep">+10<span aria-hidden="true">s</span><span class="screen-reader-text">seconds</span></button>
+{% block main %}
 
-                <button id="logTime" onclick="logCurrentTime()">Log Time to Console</button>
-            </div>
-            <script src="{{ url_for('static', filename='scripts/videoPlayer.js')  }}"></script>
-            {% else %}
-            <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload') }}">
-                <div>
-                    <label for="video">Upload a video: </label>
-                    <input type="file" id="video" name="video" required>
-                </div>
-                <button type="submit" class="upload-button">Upload</button>
-            </form>
-            {% endif %}
-        </main>
+<h2>{% if uploaded_video %}Video: {{uploaded_video}}{% else %}Upload Video{% endif %}</h2>
+{% if uploaded_video %}
+<video id="videoPlayer" height="80%" width="80%" preload="metadata">
+    <source src="{{ url_for('send_uploaded_file', filename=uploaded_video) }}" type="video/mp4">
+</video>
+<div class="videoControls hidden" id="videoControls">
+
+    <div class="video-progress">
+        <progress id="progress-bar" value="0" min="0"></progress>
+        <input class="seek" id="seek" value="0" min="0" type="range" step="0.1">
+        <div class="seek-tooltip" id="seek-tooltip">00:00</div>
     </div>
-</body>
 
-</html>
+    <div class="time">
+        <!-- TODO accessible label for video progress/duration -->
+        <time id="time-elapsed">00:00.00</time>
+        <span> / </span>
+        <time id="duration">00:00.00</time>
+    </div>
+
+
+    <button id="largeLeftStep">-10<span aria-hidden="true">s</span><span class="screen-reader-text">seconds</span></button>
+    <button id="smallLeftStep">-1<span aria-hidden="true">s</span><span class="screen-reader-text">seconds</span></button>
+    <button id="playButton" onclick="togglePlay()">Play</button>
+    <button id="playSelection" disabled>Play Selection</button>
+    <button id="smallRightStep">+1<span aria-hidden="true">s</span><span class="screen-reader-text">seconds</span></button>
+    <button id="largeRightStep">+10<span aria-hidden="true">s</span><span class="screen-reader-text">seconds</span></button>
+
+    <button id="logTime" onclick="logCurrentTime()">Log Time to Console</button>
+</div>
+<script src="{{ url_for('static', filename='scripts/videoPlayer.js')  }}"></script>
+{% else %}
+<form method="POST" enctype="multipart/form-data" action="{{ url_for('upload') }}">
+    <div>
+        <label for="video">Upload a video: </label>
+        <input type="file" id="video" name="video" required>
+    </div>
+    <button type="submit" class="upload-button">Upload</button>
+</form>
+{% endif %}
+{% endblock %}
