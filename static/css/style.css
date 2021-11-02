@@ -145,6 +145,18 @@ progress::-moz-progress-bar {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
+/* Table */
+table {
+  border-width: 2px;
+  border-style: solid;
+  border-collapse: collapse;
+}
+th, td {
+  border-width: 1px;
+  border-style: solid;
+  padding: .3em;
+}
+
 /* Media Queries */
 @media only screen and (max-width: 1024px) {
   .row.col2 {
