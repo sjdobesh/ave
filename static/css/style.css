@@ -55,14 +55,17 @@ ul.inline li {
   display: inline-block;
 }
 
-/* Upload Form Stylings */
-.upload-button {
+/* Button Stylings */
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+.large-button {
   padding: 5px 20px;
   font-size: 1em;
   margin-top: .5em;
-}
-.upload-button, input[type="file"] {
-  cursor: pointer;
 }
 
 /* Misc Stylings */
@@ -85,6 +88,12 @@ a:focus, a:hover {
 }
 
 /* Video progress bar */
+video {
+  height: 80%;
+}
+video, .video-progress {
+  width: 80%;
+}
 .video-progress {
   position: relative;
   height: 8.4px;
@@ -134,6 +143,18 @@ progress::-moz-progress-bar {
   font-weight: bold;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Table */
+table {
+  border-width: 2px;
+  border-style: solid;
+  border-collapse: collapse;
+}
+th, td {
+  border-width: 1px;
+  border-style: solid;
+  padding: .3em;
 }
 
 /* Media Queries */
