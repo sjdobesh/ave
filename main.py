@@ -20,7 +20,7 @@ def upload():
             video = request.files['video']
             videoname = secure_filename(video.filename)
             videos.save(video)
-            flash("Video " + videoname + " saved successfully.")
+            flash("Video " + videoname + " uploaded successfully.")
             return render_template('index.html', uploaded_video=escape(videoname))
         except:
             flash("Incorrect file type. Please upload an MP4 file.")
