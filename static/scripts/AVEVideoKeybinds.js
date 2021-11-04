@@ -20,7 +20,7 @@ var hopForward = "l"; //this is an L, not an I
 var jumpForward = ";";
 
 //emergency escape AVE keybinds incase user has screenreader conflicts!
-var fleeAVEKey = "ctrl+esc";
+var fleeAVEKey = "shift+esc";
 
 //this is the unbinding function, it will stop mousetrap until something calls startMousetrap() again
 function disableMousetrap(){
