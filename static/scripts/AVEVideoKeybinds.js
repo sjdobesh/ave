@@ -1,6 +1,6 @@
 //these global vars are pulled out incase we want to implement custom user keybinds
 //change as desired. empty string is equivalent to Mousetrap.unbind() as it will just bind nothing.
-
+var ISMOUSETRAP = true;
 //video actions
 var togglePlayKey = "shift+s";
 var saveKey = "ctrl+s";
@@ -23,7 +23,12 @@ var jumpForward = ";";
 var fleeAVEKey = "shift+esc";
 
 //this is the unbinding function, it will stop mousetrap until something calls startMousetrap() again
-function disableMousetrap(){
+function disableMousetrap() {
+    if (!ISMOUSETRAP) {
+        return;
+    }
+
+    ISMOUSETRAP = !ISMOUSETRAP;
     Mousetrap.unbind(togglePlayKey);
     Mousetrap.unbind(saveKey);
     Mousetrap.unbind(snipKey);
@@ -38,55 +43,67 @@ function disableMousetrap(){
 }
 
 //keybind go juice, this will all be moved into a function that is activated by a button in the nav
-Mousetrap.bind(togglePlayKey, function(){
-    togglePlay();
-});
+function startMousetrap() {
+    Mousetrap.bind(togglePlayKey, function () {
+        togglePlay();
+    });
 
-Mousetrap.bind(snipKey, function(){
-    //place snip call here.
-});
+    Mousetrap.bind(snipKey, function () {
+        //place snip call here.
+    });
 
-Mousetrap.bind(saveKey, function(){
-    //save call here
-});
+    Mousetrap.bind(saveKey, function () {
+        //save call here
+    });
 
-Mousetrap.bind(undoKey, function(){
-    //undo
-});
+    Mousetrap.bind(undoKey, function () {
+        //undo
+    });
 
-Mousetrap.bind(goToHelp, function(){
-    //help!
-});
+    Mousetrap.bind(goToHelp, function () {
+        //help!
+    });
 
-Mousetrap.bind(placeMarker, function(){
-    //call place marker here
-});
+    Mousetrap.bind(placeMarker, function () {
+        //call place marker here
+    });
 
-Mousetrap.bind(removeMarker, function(){
-    //call remove marker here
-});
+    Mousetrap.bind(removeMarker, function () {
+        //call remove marker here
+    });
 
-Mousetrap.bind(toggleMarkerGrab, function(){
-    //add call to grab/drop function here
-});
+    Mousetrap.bind(toggleMarkerGrab, function () {
+        //add call to grab/drop function here
+    });
 
-Mousetrap.bind(fleeAVEKey, function(){
-    disableMousetrap();
-});
+    Mousetrap.bind(fleeAVEKey, function () {
+        disableMousetrap();
+    });
 
-//scrubbing
-Mousetrap.bind(hopBack, function(){
-    movePlayhead(-1 * SMALL_STEP);
-});
+    //scrubbing
+    Mousetrap.bind(hopBack, function () {
+        movePlayhead(-1 * SMALL_STEP);
+    });
 
-Mousetrap.bind(jumpForward, function(){
-    movePlayhead(LARGE_STEP);
-});
+    Mousetrap.bind(jumpForward, function () {
+        movePlayhead(LARGE_STEP);
+    });
 
-Mousetrap.bind(hopForward, function(){
-    movePlayhead(SMALL_STEP);
-});
+    Mousetrap.bind(hopForward, function () {
+        movePlayhead(SMALL_STEP);
+    });
 
-Mousetrap.bind(jumpBack, function(){
-    movePlayhead(-1 * LARGE_STEP);
+    Mousetrap.bind(jumpBack, function () {
+        movePlayhead(-1 * LARGE_STEP);
+    });
+}
+
+startMousetrap();
+
+//this keybind is omnipotent as it reactivates mousetrap....but also uses mousetrap. so it probably shouldnt eat itself
+Mousetrap.bind("j k l", function () {
+    if (!ISMOUSETRAP) {
+        startMousetrap();
+        ISMOUSETRAP = !ISMOUSETRAP;
+    }
 });
