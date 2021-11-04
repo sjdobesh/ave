@@ -98,6 +98,7 @@ const smallLeftStep = document.getElementById("smallLeftStep");
 
 function movePlayhead(numFrames) {
     video.currentTime += numFrames;
+    progressBar.value = video.currentTime;
     const time = formatTime(video.currentTime.toFixed(2));
     console.log(time);
 }
