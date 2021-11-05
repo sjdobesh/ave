@@ -102,8 +102,6 @@ MenuItem.prototype.activateMenuitem = function (node) {
         }
     }
 
-    this.menu.updateMenuStates();
-
     return flag;
 
 };
