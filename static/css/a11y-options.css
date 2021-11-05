@@ -1,5 +1,9 @@
-/* Import OpenDyslexic font */
-@import url("https://db.onlinewebfonts.com/c/66a105c2c6d3ca4bf2c6fa8b8e0df1bf?family=OpenDyslexic");
+/* FontFace for OpenDyslexic font created by Abelardo Gonzalez */
+@font-face{
+    font-family: "opendyslexic";
+    src: url("fonts/OpenDyslexic-Regular/@font-face/66a105c2c6d3ca4bf2c6fa8b8e0df1bf.eot");
+    src: url("fonts/OpenDyslexic-Regular/@font-face/66a105c2c6d3ca4bf2c6fa8b8e0df1bf.woff") format("woff"), url("fonts/OpenDyslexic-Regular/@font-face/66a105c2c6d3ca4bf2c6fa8b8e0df1bf.svg") format("svg"), url("fonts/OpenDyslexic-Regular/@font-face/66a105c2c6d3ca4bf2c6fa8b8e0df1bf.ttf") format("ttf");
+}
 /* Import color stylings (connected to color scheme) */
 @import url("colors.css");
 /* Font Adjustments */
