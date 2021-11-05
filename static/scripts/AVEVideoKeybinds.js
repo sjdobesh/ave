@@ -7,6 +7,8 @@ var saveKey = "ctrl+s";
 var snipKey = "ctrl+a"
 var undoKey = "ctrl+z";
 var goToHelp = "?";
+var deleteKey = "q";
+var mergeSegments = "shift+o";
 
 //markers
 var placeMarker = "o";
@@ -29,11 +31,14 @@ function disableMousetrap() {
     }
 
     ISMOUSETRAP = !ISMOUSETRAP;
+
     Mousetrap.unbind(togglePlayKey);
     Mousetrap.unbind(saveKey);
     Mousetrap.unbind(snipKey);
     Mousetrap.unbind(undoKey);
     Mousetrap.unbind(goToHelp);
+    Mousetrap.unbind(deleteKey);
+    Mousetrap.unbind(mergeSegments);
     Mousetrap.unbind(placeMarker);
     Mousetrap.unbind(removeMarker);
     Mousetrap.unbind(toggleMarkerGrab);
@@ -62,6 +67,14 @@ function startMousetrap() {
 
     Mousetrap.bind(goToHelp, function () {
         //help!
+    });
+
+    Mousetrap.bind(deleteKey, function () {
+        //YEET
+    });
+
+    Mousetrap.bind(mergeSegments, function () {
+        //merge function here
     });
 
     Mousetrap.bind(placeMarker, function () {
@@ -103,7 +116,7 @@ startMousetrap();
 //this keybind is omnipotent as it reactivates mousetrap....but also uses mousetrap. so it probably shouldnt eat itself
 Mousetrap.bind("j k l", function () {
     if (!ISMOUSETRAP) {
-        startMousetrap();
         ISMOUSETRAP = !ISMOUSETRAP;
+        startMousetrap();
     }
 });
