@@ -27,7 +27,7 @@ const progressBar = document.getElementById('progress-bar');
 const seek = document.getElementById('seek');
 
 function formatTime(timeInSeconds) { // eg 76.4193746
-    const result = new Date(timeInSeconds * 1000).toISOString().substr(11, 11);
+    const result = (new Date(timeInSeconds * 1000)).toISOString().substr(11, 11);
 
     return {
         minutes: result.substr(3, 2),
