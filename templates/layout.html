@@ -51,9 +51,22 @@
                 <ul id="menubar1" role="menubar" aria-labelledby="a11y-options">
                     <li role="none">
                         <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
-                            Color Scheme
+                            Settings
                         </a>
-                        <ul role="group" aria-label="Color Scheme" data-option="color-scheme">
+                        <ul role="menu" data-option="settings" aria-label="Settings">
+                            <li role="menuitemcheckbox" data-option="shortcuts" aria-checked="false">
+                                Keyboard shortcuts
+                            </li>
+                            <li role="menuitemcheckbox" data-option="sounds" aria-checked="false">
+                                Sound feedback
+                            </li>
+                        </ul>
+                    </li>
+                    <li role="none">
+                        <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
+                            Color&nbsp;Scheme
+                        </a>
+                        <ul role="menu" aria-label="Color Scheme" data-option="color-scheme">
                             <li role="menuitemradio" aria-checked="true">
                                 Light mode
                             </li>
@@ -91,22 +104,6 @@
                             </li>
                             <li role="menuitemcheckbox" data-option="font-italic" aria-checked="false">
                                 Italic
-                            </li>
-                        </ul>
-                    </li>
-                    <li role="none">
-                        <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
-                            Text Align
-                        </a>
-                        <ul role="menu" data-option="text-align" aria-label="Text Align">
-                            <li role="menuitemradio" aria-checked="true">
-                                Left
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                Center
-                            </li>
-                            <li role="menuitemradio" aria-checked="false">
-                                Right
                             </li>
                         </ul>
                     </li>

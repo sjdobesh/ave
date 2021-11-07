@@ -33,23 +33,6 @@ StyleManager.prototype.setFontFamily = function (value) {
     }
 };
 
-StyleManager.prototype.setTextAlign = function (value) {
-    this.node.classList.remove("center-align");
-    this.node.classList.remove("right-align");
-    switch (value.trim()) {
-        case 'center':
-            this.node.classList.add("center-align");
-            break;
-        
-        case 'right':
-            this.node.classList.add("right-align");
-            break;
-        
-        default: // Left align
-            break;
-    }
-};
-
 StyleManager.prototype.setColorScheme = function (value) {
     this.node.classList.remove("light-gentle");
     this.node.classList.remove("dark");
@@ -80,6 +63,15 @@ StyleManager.prototype.setItalic = function (flag) {
     this.node.classList.toggle("italic");
 };
 
+StyleManager.prototype.setShortcuts = function (flag) {
+    console.log("shortcuts flag: " + flag);
+};
+
+StyleManager.prototype.setSounds = function (flag) {
+    console.log("sounds flag: " + flag);
+};
+
+
 StyleManager.prototype.setOption = function (option, value) {
 
     option = option.toLowerCase();
@@ -88,6 +80,14 @@ StyleManager.prototype.setOption = function (option, value) {
     }
 
     switch (option) {
+
+        case 'shortcuts':
+            this.setShortcuts(value);
+            break;
+
+        case 'sounds':
+            this.setSounds(value);
+            break;
 
         case 'font-bold':
             this.setBold(value);
@@ -111,10 +111,6 @@ StyleManager.prototype.setOption = function (option, value) {
 
         case 'font-italic':
             this.setItalic(value);
-            break;
-
-        case 'text-align':
-            this.setTextAlign(value);
             break;
 
         default:
