@@ -96,28 +96,3 @@ ul[role="menubar"] [role="menuitemradio"][aria-checked='true']::before {
     content: url('../images/dot-brown.png');
     padding-right: 0.3em;
 }
-
-/*
-  * Text area styles
-  */
-
-.italic {
-    font-style: italic;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.underline {
-    text-decoration: underline;
-}
-
-#textarea1 {
-    padding: 0.5em;
-    border: 1px solid black;
-    height: 400px;
-    width: 70%;
-    font-size: medium;
-    font-family: sans-serif;
-}
