@@ -25,6 +25,7 @@ def upload():
         except:
             flash("Incorrect file type. Please upload an MP4 file.")
             return render_template('index.html')
+    flash("Please upload an MP4 file to get started.")
     return render_template('index.html')
 
 
