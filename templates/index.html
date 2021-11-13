@@ -55,7 +55,6 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
         <h3 class="screen-reader-text" id="video-heading">Playhead</h3>
         <ul class="inline">
             <li><button id="playButton" onclick="togglePlay()">Play</button></li>
-            <li><button id="playSelection" disabled>Play Selection</button></li>
             <li><button id="largeLeftStep">-10<span aria-hidden="true">s</span><span class="screen-reader-text">seconds</span></button></li>
             <li><button id="smallLeftStep">-1<span aria-hidden="true">s</span><span class="screen-reader-text">second</span></button></li>
             <li><button id="smallRightStep">+1<span aria-hidden="true">s</span><span class="screen-reader-text">second</span></button></li>
@@ -66,6 +65,7 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
     <nav aria-labelledby="edit-heading">
         <h3 class="screen-reader-text" id="edit-heading">Edit</h3>
         <ul class="inline">
+            <li><button id="playSelection" disabled>Play Selection</button></li>
             <li><button id="trim" disabled>Trim to Selection</button></li>
             <li><button id="delete" disabled>Delete Selection</button></li>
         </ul>
