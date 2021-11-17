@@ -84,7 +84,7 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
     </nav>
 </div>
 <script src="{{ url_for('static', filename='scripts/videoPlayer.js')  }}"></script>
-<script src="{{ url_for('static', filename='scripts/AVEVideoKeybinds.js')  }}"></script>
+<!-- <script src="{{ url_for('static', filename='scripts/AVEVideoKeybinds.js')  }}"></script> -->
 {% if not uploaded_video %}
 </div>
 <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload') }}">
