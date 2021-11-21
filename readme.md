@@ -47,10 +47,11 @@ pip install flask Flask-Reuploaded
 ```
 
 ### Quick Start
+The following scripts will run AVE locally on your computer in debug mode.
 
 #### Bash Script
 ```
-./run.sh
+./run
 ```
 
 #### CMD Script
@@ -61,6 +62,30 @@ pip install flask Flask-Reuploaded
 #### PowerShell Script
 ```
 ./run.ps1
+```
+
+### Live Test
+This runs the app on port 8080 for external access. Intended for testing with remote participants
+
+#### Bash Script
+```
+./run_live
+```
+
+#### CMD Script
+```
+./run_live.cmd
+```
+
+#### PowerShell Script
+```
+./run_live.ps1
+```
+
+### Clean
+This script exists to clear out the upload folder.
+```
+./clean
 ```
 
 #### Manually
