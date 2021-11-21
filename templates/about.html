@@ -6,10 +6,13 @@
 
 <!-- TODO: Figure out how to make these considered alerts to screen reader users.
 Setting an alert role didn't seem to help; should the alerts go at the top of the page? Decide later. -->
-{% block col1role %}navigation{% endblock %}
-{% block col1attributes %}aria-label="Overview"{% endblock %}
-{% block col1h2 %}Overview{% endblock %}
-{% block col1content %}
+{% block box2editorattributes %}style="display:none;"{% endblock %}
+
+{% block box1role %}navigation{% endblock %}
+{% block box1attributes %}aria-label="Overview"{% endblock %}
+{% block box1h2attributes %}class="margin-top-02-em"{% endblock %}
+{% block box1h2 %}Overview{% endblock %}
+{% block box1content %}
 <ol>
     <li><a href="#about">About</a></li>
     <li><a href="#use">Usage</a></li>

@@ -8,11 +8,17 @@ The ul menubars are based on the following w3 code: https://www.w3.org/TR/wai-ar
 {% block link1href %}/about{% endblock %}
 {% block link1text %}About{% endblock %}
 
+{% block box2editorattributes %}
+{% if not uploaded_video %}
+style="display:none;"
+{% endif %}
+{% endblock %}
 <!-- TODO: Figure out how to make these considered alerts to screen reader users.
 Setting an alert role didn't seem to help; should the alerts go at the top of the page? Decide later. -->
-{% block col1role %}alert{% endblock %}
-{% block col1h2 %}Alerts{% endblock %}
-{% block col1content %}
+{% block box1role %}alert{% endblock %}
+{% block box1h2attributes %}class="screen-reader-text"{% endblock %}
+{% block box1h2 %}Alerts{% endblock %}
+{% block box1content %}
 {% with messages = get_flashed_messages() %}
 {% if messages %}
 <ul class="flashes">
@@ -83,7 +89,7 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
 </div>
 <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload') }}">
     <div>
-        <label for="video">Upload a video &lpar;MP4&rpar;: </label>
+        <label for="video">Select a video &lpar;MP4&rpar;: </label>
         <input type="file" id="video" name="video" required accept=".mp4">
     </div>
     <button type="submit" class="large-button">Upload</button>
