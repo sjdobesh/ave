@@ -55,8 +55,8 @@ ul.inline li {
   display: inline-block;
 }
 
-/* Button Stylings */
-button {
+/* Button and Form Stylings */
+button, select, input[type=submit] {
   cursor: pointer;
 }
 button:disabled {
@@ -67,23 +67,17 @@ button:disabled {
   font-size: 1em;
   margin-top: .5em;
 }
+.display-block {
+  display: block;
+}
+form .display-block:not(:last-child) {
+  margin-bottom: .4em;
+}
 
 /* Misc Stylings */
-.has-border, ul[role="menubar"] .has-border[role="menuitem"] {
+.has-border {
   border-width: 2px;
   border-style: solid;
-}
-.margin-left-0, .row.col2 .margin-left-0 {
-  margin-left: 0;
-}
-.margin-right-0, .row.col2 .margin-right-0 {
-  margin-right: 0;
-}
-#menubar1 {
-  display: inline-block;
-}
-#menubar1 li {
-  cursor: pointer;
 }
 a:focus, a:hover {
   outline-width: 2px;
