@@ -87,12 +87,13 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
 <script src="{{ url_for('static', filename='scripts/AVEVideoKeybinds.js')  }}"></script>
 {% if not uploaded_video %}
 </div>
+<script src="{{ url_for('static', filename='scripts/videoUploadForm.js')  }}"></script>
 <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload') }}">
     <div>
-        <label for="video">Select a video &lpar;MP4&rpar;: </label>
-        <input type="file" id="video" name="video" required accept=".mp4">
+        <label for="video" id="video-label">Select a MP4 video: </label>
+        <input type="file" id="video" name="video" required accept=".mp4" onchange="updateUploadForm()">
     </div>
-    <button type="submit" class="large-button">Upload</button>
+    <button type="submit" class="large-button" id="upload-button">Upload</button>
 </form>
 {% endif %}
 {% endblock %}
