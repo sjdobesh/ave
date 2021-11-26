@@ -26,42 +26,43 @@
                 <hr aria-hidden="true">
             </nav>
 
-
-            <nav class="has-border padding-10px" aria-labelledby="a11y-options">
-                <h2 id="a11y-options" class="screen-reader-text">Accessibility Options</h2>
-                <span {% block box2editorattributes %}{% endblock %}>
-                    <!-- <input type="checkbox" id="shortcuts" name="shortcuts" value="shortcuts">
+            <div class="two-col">
+                <nav class="has-border padding-10px" aria-labelledby="a11y-options">
+                    <h2 id="a11y-options" class="screen-reader-text">Accessibility Options</h2>
+                    <span {% block box2editorattributes %}{% endblock %}>
+                        <!-- <input type="checkbox" id="shortcuts" name="shortcuts" value="shortcuts">
                 <label for="shortcuts"> Keyboard shortcuts</label> -->
-                </span>
-                <form onsubmit="return updateDisplay();" name="a11y-form" method="POST">
-                    <span class="display-block">
-                        <label for="color-scheme-select">Color Scheme</label>
-                        <select name="color-scheme-select" id="color-scheme-select">
-                            <option value="light">Light - Selected</option>
-                            <option value="light-gentle">Gentle light</option>
-                            <option value="dark">Dark</option>
-                            <option value="dark-gentle">Gentle dark</option>
-                        </select>
                     </span>
-                    <span class="display-block">
-                        <label for="font-select">Font</label>
-                        <select name="font-select" id="font-select">
-                            <option value="sans-serif">Sans Serif - Selected</option>
-                            <option value="serif">Serif</option>
-                            <option value="monospace">Monospace</option>
-                            <option value="opendyslexic">Open Dyslexic</option>
-                        </select>
-                    </span>
-                    <span class="display-block">
-                        <input type="submit" value="Update Page">
-                    </span>
-                </form>
-                <hr aria-hidden="true" class="small-screen">
-            </nav>
-            <div class="has-border padding-10px" role="{% block box1role %}{% endblock %}" {% block box1attributes %}{%
-                endblock %}>
-                <h2 {% block box1h2attributes %}{% endblock %}>{% block box1h2 %}{% endblock %}</h2>
-                {% block box1content%}{% endblock %}
+                    <form onsubmit="return updateDisplay();" name="a11y-form" method="POST">
+                        <span class="display-block">
+                            <label for="color-scheme-select">Color Scheme</label>
+                            <select name="color-scheme-select" id="color-scheme-select">
+                                <option value="light">Light - Selected</option>
+                                <option value="light-gentle">Gentle light</option>
+                                <option value="dark">Dark</option>
+                                <option value="dark-gentle">Gentle dark</option>
+                            </select>
+                        </span>
+                        <span class="display-block">
+                            <label for="font-select">Font</label>
+                            <select name="font-select" id="font-select">
+                                <option value="sans-serif">Sans Serif - Selected</option>
+                                <option value="serif">Serif</option>
+                                <option value="monospace">Monospace</option>
+                                <option value="opendyslexic">Open Dyslexic</option>
+                            </select>
+                        </span>
+                        <span class="display-block">
+                            <input type="submit" value="Update Page">
+                        </span>
+                    </form>
+                    <hr aria-hidden="true" class="small-screen">
+                </nav>
+                <div class="has-border padding-10px" role="{% block box1role %}{% endblock %}" {% block box1attributes
+                    %}{% endblock %}>
+                    <h2 {% block box1h2attributes %}{% endblock %}>{% block box1h2 %}{% endblock %}</h2>
+                    {% block box1content%}{% endblock %}
+                </div>
             </div>
             <hr aria-hidden="true">
         </header>
