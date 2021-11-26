@@ -186,4 +186,17 @@ th, td {
   .small-screen {
     display: block;
   }
+  ul.flashes {
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+}
+@media only screen and (max-width: 200px) {
+  nav.menu ul li a {
+    display: block;
+    text-align: center;
+  }
+  nav.menu ul li a:first-child {
+    margin-bottom: .5em;
+  }
 }
