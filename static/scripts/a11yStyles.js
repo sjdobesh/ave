@@ -33,11 +33,11 @@ function markSelected(select) {
     for (let i = 0; i < select.length; i++) {
         // console.log(i + ": " + colorSelect.options[i].text);
         if (i == select.selectedIndex) {
-            if (!select.options[i].text.includes("Selected")) {
-                select.options[i].text += " - Selected";
+            if (!select.options[i].text.includes("Current")) {
+                select.options[i].text += " - Current";
             }
         } else {
-            select.options[i].text = select.options[i].text.replace(" - Selected", "");
+            select.options[i].text = select.options[i].text.replace(" - Current", "");
         }
     }
 }
