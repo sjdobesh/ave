@@ -50,8 +50,8 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
         <div class="seek-tooltip" id="seek-tooltip" aria-hidden="true">00:00</div>
     </div>
 
-    <div class="time">
-        <!-- TODO accessible label for video progress/duration -->
+    <div class="time"> <!--aria-live="polite"-->
+        <!-- TODO accessible label for video progress/duration? -->
         <time id="time-elapsed">00:00.00</time>
         <span> / </span>
         <time id="duration">00:00.00</time>
@@ -61,7 +61,7 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
         <time id="mark2">00:00.00</time>
     </div>
 
-    <nav aria-labelledby="video-nav-heading">
+    <nav aria-labelledby="video-heading">
         <h3 class="screen-reader-text" id="video-heading">Playhead</h3>
         <ul class="inline">
             <li><button id="playButton" onclick="togglePlay()">Play</button></li>
@@ -90,20 +90,21 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
     <nav aria-labelledby="download-heading">
         <h3 class="screen-reader-text" id="download-heading">Download</h3>
         <form method="POST" action="{{ url_for('download_file', filename=uploaded_video) }}">
-            <button id="download" class="large-button"> Download</button>
+            <button id="download" class="large-button">Download {{uploaded_video}}</button>
         </form>
     </nav>
 </div>
 <script src="{{ url_for('static', filename='scripts/videoPlayer.js')  }}"></script>
-<!-- <script src="{{ url_for('static', filename='scripts/AVEVideoKeybinds.js')  }}"></script> -->
+<script src="{{ url_for('static', filename='scripts/AVEVideoKeybinds.js')  }}"></script>
 {% if not uploaded_video %}
 </div>
+<script src="{{ url_for('static', filename='scripts/videoUploadForm.js')  }}"></script>
 <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload') }}">
     <div>
-        <label for="video">Select a video &lpar;MP4&rpar;: </label>
-        <input type="file" id="video" name="video" required accept=".mp4">
+        <label for="video" id="video-label">Select a MP4 video: </label>
+        <input type="file" id="video" name="video" required accept=".mp4" onchange="updateUploadForm()">
     </div>
-    <button type="submit" class="large-button">Upload</button>
+    <button type="submit" class="large-button" id="upload-button">Upload</button>
 </form>
 {% endif %}
 {% endblock %}

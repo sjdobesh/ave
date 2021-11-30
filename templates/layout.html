@@ -6,104 +6,78 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')  }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/menubarAction.css')  }}">
-    <!-- A11y options menubar scripts -->
-    <script src="{{ url_for('static', filename='scripts/MenubarAction.js')  }}"></script>
-    <script src="{{ url_for('static', filename='scripts/MenubarItemAction.js')  }}"></script>
-    <script src="{{ url_for('static', filename='scripts/PopupMenuAction.js')  }}"></script>
-    <script src="{{ url_for('static', filename='scripts/PopupMenuActionItem.js')  }}"></script>
-    <script src="{{ url_for('static', filename='scripts/menubar-2-init.js')  }}"></script>
-    <script src="{{ url_for('static', filename='scripts/styleManager.js')  }}"></script>
+    <!-- a11y options -->
+    <script src="{{ url_for('static', filename='scripts/a11yStyles.js')  }}"></script>
     <!-- mousetrap -->
-    <!-- <script src="{{ url_for('static', filename='scripts/mousetrap.min.js')  }}"></script> -->
+    <script src="{{ url_for('static', filename='scripts/mousetrap.min.js')  }}"></script>
 </head>
 
 <body>
     <div id="wrapper">
         <a class="screen-reader-text skip-link" href="#content">Skip to Content</a>
         <header>
-            <h1>{% block h1 %}{% endblock %}</h1>
+            <nav aria-label="Primary" class="menu">
+                <ul>
+                    <!-- {% block link1 %}{% endblock %} -->
+                    <li><a class="menu-link" href="{% block link1href %}{% endblock %}">{% block link1text %}{% endblock
+                            %}</a></li>
+                    <li><a class="menu-link" href="https://github.com/sjdobesh/ave">GitHub</a></li>
+                </ul>
+                <hr aria-hidden="true">
+            </nav>
+
+            <div class="two-col">
+                <nav class="has-border padding-10px" aria-labelledby="a11y-options">
+                    <h2 id="a11y-options" class="screen-reader-text">Accessibility Options</h2>
+                    <span {% block box2editorattributes %}{% endblock %}>
+                        <!-- <input type="checkbox" id="shortcuts" name="shortcuts" value="shortcuts">
+                <label for="shortcuts"> Keyboard shortcuts</label> -->
+                    </span>
+                    <form onsubmit="return updateDisplay();" name="a11y-form" method="POST" class="two-col-80-20">
+                        <div>
+                            <span class="display-block">
+                                <label for="color-scheme-select">Color Scheme</label>
+                                <select name="color-scheme-select" id="color-scheme-select">
+                                    <option value="light">Light - Current</option>
+                                    <option value="light-gentle">Gentle light</option>
+                                    <option value="dark">Dark</option>
+                                    <option value="dark-gentle">Gentle dark</option>
+                                </select>
+                            </span>
+                            <span class="display-block">
+                                <label for="font-select">Font</label>
+                                <select name="font-select" id="font-select">
+                                    <option value="sans-serif">Sans Serif - Current</option>
+                                    <option value="serif">Serif</option>
+                                    <option value="monospace">Monospace</option>
+                                    <option value="opendyslexic">Open Dyslexic</option>
+                                </select>
+                            </span>
+                        </div>
+                        <span class="display-block">
+                            <input type="submit" value="Update Page" class="large-button">
+                        </span>
+                    </form>
+                    <hr aria-hidden="true" class="small-screen">
+                </nav>
+                <div class="has-border padding-10px" role="{% block box1role %}{% endblock %}" {% block box1attributes
+                    %}{% endblock %}>
+                    <h2 {% block box1h2attributes %}{% endblock %}>{% block box1h2 %}{% endblock %}</h2>
+                    {% block box1content%}{% endblock %}
+                </div>
+            </div>
             <hr aria-hidden="true">
         </header>
-        <nav aria-label="Primary" class="menu">
-            <ul>
-                <!-- {% block link1 %}{% endblock %} -->
-                <li><a class="menu-link" href="{% block link1href %}{% endblock %}">{% block link1text %}{% endblock
-                        %}</a></li>
-                <li><a class="menu-link" href="https://github.com/sjdobesh/ave">GitHub</a></li>
-            </ul>
-            <hr aria-hidden="true">
-        </nav>
-
-
-        <nav class="has-border padding-10px" aria-labelledby="a11y-options">
-            <h2 id="a11y-options" class="screen-reader-text">Accessibility Options</h2>
-            <span {% block box2editorattributes %}{% endblock %}>
-                <!-- <input type="checkbox" id="shortcuts" name="shortcuts" value="shortcuts">
-                <label for="shortcuts"> Keyboard shortcuts</label> -->
-            </span>
-            <ul id="menubar1" role="menubar" aria-label="Visual Accessibility Options">
-                <li role="none">
-                    <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
-                        Color&nbsp;Scheme
-                    </a>
-                    <ul role="menu" aria-label="Color Scheme" data-option="color-scheme">
-                        <li role="menuitemradio" aria-checked="true">
-                            Light mode
-                        </li>
-                        <li role="menuitemradio" aria-checked="false">
-                            Light mode (Gentle)
-                        </li>
-                        <li role="menuitemradio" aria-checked="false">
-                            Dark mode
-                        </li>
-                        <li role="menuitemradio" aria-checked="false">
-                            Dark mode (Gentle)
-                        </li>
-                    </ul>
-                </li>
-                <li role="none">
-                    <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#" class="has-border">
-                        Font
-                    </a>
-                    <ul role="menu" data-option="font-family" aria-label="Font">
-                        <li role="menuitemradio" aria-checked="true">
-                            Sans-serif
-                        </li>
-                        <li role="menuitemradio" aria-checked="false">
-                            Serif
-                        </li>
-                        <li role="menuitemradio" aria-checked="false">
-                            Monospace
-                        </li>
-                        <li role="menuitemradio" aria-checked="false">
-                            OpenDyslexic
-                        </li>
-                        <li role="separator"></li>
-                        <li role="menuitemcheckbox" data-option="font-bold" aria-checked="false">
-                            Bold
-                        </li>
-                        <li role="menuitemcheckbox" data-option="font-italic" aria-checked="false">
-                            Italic
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <hr aria-hidden="true" class="small-screen">
-        </nav>
-        <div class="has-border padding-10px" role="{% block box1role %}{% endblock %}" {% block box1attributes %}{% endblock %}>
-            <h2 {% block box1h2attributes %}{% endblock %}>{% block box1h2 %}{% endblock %}</h2>
-            {% block box1content%}{% endblock %}
-        </div>
-        <hr aria-hidden="true">
 
         <main id="content">
+            <h1>{% block h1 %}{% endblock %}</h1>
             {% block main %}
             {% endblock %}
         </main>
-        <footer>
+        <!-- <footer> -->
             <!-- TODO: Add footer here; copyright info? -->
             <!-- <hr aria-hidden="true"> -->
-        </footer>
+        <!-- </footer> -->
 </body>
 
 </html>
