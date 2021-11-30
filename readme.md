@@ -28,7 +28,7 @@ Note that for Conda, you will have to install pip to the Conda environment, and 
 ```
 python3 -m venv env
 source env/bin/activate
-pip install flask Flask-Reuploaded
+pip install flask Flask-Reuploaded moviepy
 ```
 
 ##### Conda
@@ -36,14 +36,14 @@ pip install flask Flask-Reuploaded
 conda create --name env
 conda activate env
 conda install pip
-~/anaconda/envs/env/bin/pip install flask Flask-Reuploaded
+~/anaconda/envs/env/bin/pip install flask Flask-Reuploaded moviepy
 ```
 
 #### Windows PowerShell
 ```
 py -3 -m venv venv
 venv\Scripts\activate
-pip install flask Flask-Reuploaded
+pip install flask Flask-Reuploaded moviepy
 ```
 
 ### Quick Start
