@@ -52,13 +52,13 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
 
     <div class="time"> <!--aria-live="polite"-->
         <!-- TODO accessible label for video progress/duration? -->
-        <time id="time-elapsed">00:00.00</time>
-        <span> / </span>
-        <time id="duration">00:00.00</time>
-        <span> mark 1: </span>
-        <time id="mark1">00:00.00</time>
-        <span> mark 2: </span>
-        <time id="mark2">00:00.00</time>
+        <span>
+            <time id="time-elapsed">00:00.00</time>
+            /
+            <time id="duration">00:00.00</time>
+        </span>
+        <span class="mark">Mark 1: <time id="mark1">00:00.00</time></span>
+        <span class="mark">Mark 2: <time id="mark2">00:00.00</time></span>
     </div>
 
     <nav aria-labelledby="video-heading">
