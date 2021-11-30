@@ -44,7 +44,7 @@ function initializeVideo() {
     progressBar.setAttribute('max', videoDuration);
     const time = formatTime(videoDuration);
     duration.innerText = `${time.minutes}:${time.seconds}.${time.milliseconds}`;
-}  
+}
 
 // updateTimeElapsed indicates how far through the video
 // the current playback is
@@ -58,7 +58,7 @@ function updateTimeElapsed() {
 function updateProgress() {
     seek.value = video.currentTime.toFixed(2);
     progressBar.value = video.currentTime.toFixed(2);
-} 
+}
 
 // log time to Console for debugging
 function logCurrentTime() {
@@ -78,7 +78,7 @@ function updateSeekTooltip(event) {
     seekTooltip.textContent = `${t.minutes}:${t.seconds}`;
     const rect = video.getBoundingClientRect();
     seekTooltip.style.left = `${event.pageX - rect.left}px`;
-}  
+}
 
 // skipAhead jumps to a different point in the video when
 // the progress bar is clicked
@@ -88,6 +88,30 @@ function skipAhead(event) {
     progressBar.value = skipTo;
     seek.value = skipTo;
 }
+
+// SETTING MARKS //
+
+// collect the labels from the document
+const mark1 = document.getElementById('mark1');
+const mark2 = document.getElementById('mark2');
+// collect the buttons
+const addMark1 = document.getElementById("addMark1");
+const addMark2 = document.getElementById("addMark2");
+
+// which should be 1 or 2 indicating which mark
+function updateMark(which) {
+    const time = formatTime(video.currentTime.toFixed(2));
+    const timeAsText = `${time.minutes}:${time.seconds}.${time.milliseconds}`;
+    // using ternary with arg to decide which mark we are setting
+    if (which == 1) {
+        mark1.innerText = timeAsText;
+    } else {
+        mark2.innerText = timeAsText;
+    }
+}
+// set on click functions to update marks
+addMark1.onclick = function() {updateMark(1)};
+addMark2.onclick = function() {updateMark(2)};
 
 // Video scrubbing and rewinding/fast-forwarding
 

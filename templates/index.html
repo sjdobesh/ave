@@ -55,6 +55,10 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
         <time id="time-elapsed">00:00.00</time>
         <span> / </span>
         <time id="duration">00:00.00</time>
+        <span> mark 1: </span>
+        <time id="mark1">00:00.00</time>
+        <span> mark 2: </span>
+        <time id="mark2">00:00.00</time>
     </div>
 
     <nav aria-labelledby="video-nav-heading">
@@ -71,8 +75,15 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
     <nav aria-labelledby="edit-heading">
         <h3 class="screen-reader-text" id="edit-heading">Edit</h3>
         <ul class="inline">
+            <li><button id="addMark1">Add Mark 1</button></li>
+            <li><button id="addMark2">Add Mark 2</button></li>
             <li><button id="playSelection" disabled>Play Selection</button></li>
-            <li><button id="trim" disabled>Trim to Selection</button></li>
+            <!-- <li><button id="trim" disabled>Trim to Selection</button></li> -->
+            <li>
+                <form method="POST" action="{{ url_for('trim', filename=uploaded_video, start=mark1, stop=5) }}">
+                    <button id="trim">Trim</button>
+                </form>
+            </li>
             <li><button id="delete" disabled>Delete Selection</button></li>
         </ul>
     </nav>

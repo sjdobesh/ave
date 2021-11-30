@@ -4,6 +4,15 @@ from flask_uploads import UploadSet, configure_uploads
 from werkzeug.utils import redirect, secure_filename
 from markupsafe import escape
 
+# we need to find ffmpeg before we can import moviepy
+import os
+# point to ffmpeg with environment variable
+print('OS Detected: ', os.name)
+if os.name == 'posix':
+    os.environ["IMAGEIO_FFMPEG_EXE"] = '/usr/bin/ffmpeg'
+# elsif os.name == 'nt' # windows equivalent.
+from moviepy.editor import * # TODO remove star import when we know the specific modules we need.
+# from moviepy import VideoFileClip 
 
 app = Flask(__name__)
 extensions = ('mp4')  # restricting to mp4 for now. If updating this, also update HTML
@@ -42,3 +51,33 @@ def download_file(filename=''):
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+
+# take in two markers and the filename to edit
+# trims video to between start and stop.
+# def trim(start, stop, filename):
+@app.route('/trim/<filename>/<start>/<stop>', methods=['POST'])
+def trim(filename, start, stop):
+    start = int(start)
+    stop = int(stop)
+    print("start:", start, type(start))
+    print("stop: ", stop, type(stop))
+    path_filename = app.config['UPLOADED_VIDEOS_DEST'] + '/' + filename
+    video_clip = VideoFileClip(path_filename)
+    # video_clip = video_clip.subclip(start, stop)
+    video_clip = video_clip.subclip(start, stop)
+    video_clip.write_videofile(path_filename)  # defaults to rewriting the file
+    video_clip.close()
+    return render_template('index.html', uploaded_video=escape(filename))
+
+
+# take in two markers and the filename to edit
+# clips out video between marks and concatonates remaining video
+@app.route('/clip', methods=['POST'])
+def clip(start, stop, filename):
+    path_filename = app.config['UPLOADED_VIDEOS_DEST'] + '/' + filename
+    video_clip = VideoFileClip(path_filename)
+    video_clip = video_clip.cutout(start, stop)
+    video_clip.write_videofile(path_filename)  # defaults to rewriting the file
+    video_clip.close()
+    return render_template('index.html', uploaded_video=escape(filename))
