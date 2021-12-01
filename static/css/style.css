@@ -9,15 +9,19 @@
   max-width: 1024px;
 }
 
-/* Two box stylings */
-nav.has-border {
-  margin-bottom: 6px;
+/* Two column box stylings */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: .5em;
+}
+.two-col-80-20 {
+  display: grid;
+  grid-template-columns: 8fr 2fr;
+  column-gap: .5em;
 }
 .padding-10px {
   padding: 10px;
-}
-div[role="alert"] li {
-  font-size: 1.2em;
 }
 .margin-top-02-em {
   margin-top: 0.2em;
@@ -55,8 +59,8 @@ ul.inline li {
   display: inline-block;
 }
 
-/* Button Stylings */
-button {
+/* Button and Form Stylings */
+button, select, input[type=submit] {
   cursor: pointer;
 }
 button:disabled {
@@ -67,23 +71,17 @@ button:disabled {
   font-size: 1em;
   margin-top: .5em;
 }
+.display-block {
+  display: block;
+}
+form .display-block:not(:last-child) {
+  margin-bottom: .4em;
+}
 
 /* Misc Stylings */
-.has-border, ul[role="menubar"] .has-border[role="menuitem"] {
+.has-border {
   border-width: 2px;
   border-style: solid;
-}
-.margin-left-0, .row.col2 .margin-left-0 {
-  margin-left: 0;
-}
-.margin-right-0, .row.col2 .margin-right-0 {
-  margin-right: 0;
-}
-#menubar1 {
-  display: inline-block;
-}
-#menubar1 li {
-  cursor: pointer;
 }
 a:focus, a:hover {
   outline-width: 2px;
@@ -165,16 +163,40 @@ th, td {
 
 /* Media Queries */
 @media only screen and (max-width: 1024px) {
-  .small-screen {
-    display: block;
-  }
   #wrapper {
     width: 100%;
+  }
+  .two-col div.has-border {
+    padding-left: 0;
+  }
+  .two-col-80-20 {
+    grid-template-columns: 1fr;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .two-col {
+    grid-template-columns: 1fr;
   }
   .has-border {
     border-width: 0;
   }
   .padding-10px {
     padding: 0px;
+  }
+  .small-screen {
+    display: block;
+  }
+  ul.flashes {
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+}
+@media only screen and (max-width: 200px) {
+  nav.menu ul li a {
+    display: block;
+    text-align: center;
+  }
+  nav.menu ul li a:first-child {
+    margin-bottom: .5em;
   }
 }
