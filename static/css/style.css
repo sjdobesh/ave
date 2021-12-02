@@ -97,9 +97,10 @@ a:focus, a:hover {
   grid-template-columns: 1fr 1fr;
 }
 .marks input[type=number] {
+  display: block;
   width: 4em;
 }
-.marks form > fieldset, .marks form > input {
+.marks form > fieldset, .marks form fieldset > div {
   display: inline-block;
 }
 
