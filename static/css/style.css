@@ -91,6 +91,18 @@ a:focus, a:hover {
   display: none;
 }
 
+/* Video marks */
+.marks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.marks input[type=number] {
+  width: 4em;
+}
+.marks form > fieldset, .marks form > input {
+  display: inline-block;
+}
+
 /* Video progress bar */
 video {
   height: 80%;

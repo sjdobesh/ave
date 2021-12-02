@@ -60,6 +60,33 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
         <span class="mark">Mark 1: <time id="mark1">00:00.00</time></span>
         <span class="mark">Mark 2: <time id="mark2">00:00.00</time></span>
     </div>
+    <div class="marks">
+        <h3 class="screen-reader-text">Marks</h3>
+        <form onsubmit="return updateMark();" method="POST" name="m1-form">
+            <fieldset>
+                <legend>Mark 1</legend>
+                <label for="m1-mm" class="screen-reader-text">Minutes</label>
+                <input type="number" name="m1-mm" id="m1-mm" min="0" value="0"> <!-- TODO add max? if implementing hours -->
+                <label for="m1-ss" class="screen-reader-text">Seconds</label>
+                <input type="number" name="m1-ss" id="m1-ss" min="0" max="59" value="0">
+                <label for="m1-ms" class="screen-reader-text">Milliseconds</label>
+                <input type="number" name="m1-ms" id="m1-ms" min="0" max="59" value="0">
+            </fieldset>
+            <input type="submit" value="Update Mark 1">
+        </form>
+        <form onsubmit="return updateMark();" method="POST" name="m2-form">
+            <fieldset>
+                <legend>Mark 2</legend>
+                <label for="m2-mm" class="screen-reader-text">Minutes</label>
+                <input type="number" name="m2-mm" id="m2-mm" min="0" value="0"> <!-- TODO add max? if implementing hours -->
+                <label for="m2-ss" class="screen-reader-text">Seconds</label>
+                <input type="number" name="m2-ss" id="m2-ss" min="0" max="59" value="0">
+                <label for="m2-ms" class="screen-reader-text">Milliseconds</label>
+                <input type="number" name="m2-ms" id="m2-ms" min="0" max="59" value="0">
+            </fieldset>
+            <input type="submit" value="Update Mark 2">
+        </form>
+    </div>
 
     <nav aria-labelledby="video-heading">
         <h3 class="screen-reader-text" id="video-heading">Playhead</h3>
