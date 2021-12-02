@@ -1,13 +1,14 @@
-function updateMark() {
-    console.log("In updateMark");
-    // if (isNaN(markNumber) || (markNumber != 0 && markNumber != 1)) {
-    //     console.log("Issue with input...");
-    //     return false;
-    // }
+function updateMarkForm(mark) {
+    if (isNaN(mark) || (mark != 1 && mark != 2)) {
+        console.log("Issue with mark. Should be 1 or 2");
+        return false;
+    }
 
-    // let formID = "m" + markNumber + "-form"
-    // console.log(formID);
-    // let form = document.forms["m" + markNumber + "-form"];
+    let form = document.forms["m" + mark + "-form"];
+    let mm = form["m" + mark + "-mm"];
+    let ss = form["m" + mark + "-ss"];
+    let ms = form["m" + mark + "-ms"];
+    console.log(mm.value + ":" + ss.value + "." + ms.value);
 
     return false;
 }
