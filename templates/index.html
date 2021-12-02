@@ -62,7 +62,7 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
     </div>
     <div class="marks">
         <h3 class="screen-reader-text">Marks</h3>
-        <form onsubmit="return updateMark();" method="POST" name="m1-form">
+        <form onsubmit="return updateMark()" method="POST" name="m1-form">
             <fieldset>
                 <legend>Mark 1</legend>
                 <div>
@@ -80,7 +80,7 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
             </fieldset>
             <input type="submit" value="Update Mark 1">
         </form>
-        <form onsubmit="return updateMark();" method="POST" name="m2-form">
+        <form onsubmit="return updateMark()" method="POST" name="m2-form">
             <fieldset>
                 <legend>Mark 1</legend>
                 <div>
@@ -135,6 +135,8 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
 </div>
 <script src="{{ url_for('static', filename='scripts/videoPlayer.js')  }}"></script>
 <script src="{{ url_for('static', filename='scripts/AVEVideoKeybinds.js')  }}"></script>
+<!-- update marks -->
+<script src="{{ url_for('static', filename='scripts/marks.js')  }}"></script>
 {% if not uploaded_video %}
 </div>
 <script src="{{ url_for('static', filename='scripts/videoUploadForm.js')  }}"></script>
