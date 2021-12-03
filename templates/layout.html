@@ -27,8 +27,8 @@
             </nav>
 
             <div class="two-col">
-                <nav class="has-border padding-10px" aria-labelledby="a11y-options">
-                    <h2 id="a11y-options" class="screen-reader-text">Accessibility Options</h2>
+                <nav class="has-border" aria-labelledby="a11y-options">
+                    <h2 id="a11y-options">Accessibility Options</h2>
                     <span {% block box2editorattributes %}{% endblock %}>
                         <!-- <input type="checkbox" id="shortcuts" name="shortcuts" value="shortcuts">
                 <label for="shortcuts"> Keyboard shortcuts</label> -->
@@ -60,7 +60,7 @@
                     </form>
                     <hr aria-hidden="true" class="small-screen">
                 </nav>
-                <div class="has-border padding-10px" role="{% block box1role %}{% endblock %}" {% block box1attributes
+                <div class="has-border" role="{% block box1role %}{% endblock %}" {% block box1attributes
                     %}{% endblock %}>
                     <h2 {% block box1h2attributes %}{% endblock %}>{% block box1h2 %}{% endblock %}</h2>
                     {% block box1content%}{% endblock %}

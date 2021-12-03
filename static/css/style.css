@@ -20,11 +20,19 @@
   grid-template-columns: 8fr 2fr;
   column-gap: .5em;
 }
-.padding-10px {
-  padding: 10px;
-}
 .margin-top-02-em {
   margin-top: 0.2em;
+}
+header .has-border {
+  padding: 0 1em 1em 1em;
+}
+header .has-border h2 {
+  font-size: .8em;
+  margin-top: .2em;
+  margin-bottom: .4em;
+}
+header .has-border ol {
+  margin: 0;
 }
 
 /* Menu Stylings */
