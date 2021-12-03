@@ -11,5 +11,6 @@ function updateUploadForm() {
     }
 
     label.innerHTML = fileName;
+    button.disabled = false;
     button.innerHTML = "Upload " + fileName;
 }
