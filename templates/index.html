@@ -3,7 +3,13 @@ Citations:
 The ul menubars are based on the following w3 code: https://www.w3.org/TR/wai-aria-practices/examples/menubar/menubar-2/menubar-2.html
 -->
 {% extends "layout.html" %}
-{% block title %}Homepage{% endblock %}
+{% block title %}
+{% if not uploaded_video %}
+Upload
+{% else %}
+{{uploaded_video}}
+{% endif %}
+{% endblock %}
 {% block h1 %}Accessible Video Editor{% if uploaded_video %}: {{uploaded_video}} {% endif %}{% endblock %}
 {% block link1href %}/about{% endblock %}
 {% block link1text %}About{% endblock %}
