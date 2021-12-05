@@ -31,8 +31,8 @@
                     <h2 id="a11y-options">Accessibility Options</h2>
                     <form onsubmit="return updateDisplay();" name="a11y-form" method="POST" class="two-col-80-20">
                         <div>
-                            <span class="display-block" {% block box2editorattributes %}{% endblock %}>
-                                <input type="checkbox" id="shortcuts" name="shortcuts" value="shortcuts">
+                            <span class="display-block">
+                                <input type="checkbox" id="shortcuts" name="shortcuts" value="shortcuts" {% block box2keyboardshortcuts %}{% endblock %}>
                                 <label for="shortcuts"> Keyboard shortcuts</label>
                             </span>
                             <span class="display-block">
