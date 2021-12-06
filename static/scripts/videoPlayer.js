@@ -117,14 +117,14 @@ addMark1.onclick = function() {updateMark(1)};
 addMark2.onclick = function() {updateMark(2)};
 
 // Validate marks before trimming or deleting
-function validateMarks() {
+function validateMarks(action = "") {
     if (mark1.innerText < mark2.innerText)
         return true;
     if (!markAlert) {
         alertList.innerHTML = '<li id="markAlert">ALERT</li>';
         markAlert = document.querySelector("ul.flashes li#markAlert");
     }
-    markAlert.innerHTML = "Error Trimming: Markers out of order. Mark 1 must come before Mark 2. Current placement: <ol><li>" + mark1.innerText + "</li><li>" + mark2.innerText + "</li></ol>";
+    markAlert.innerHTML = String(action) + " Error: Markers out of order. Mark 1 must come before Mark 2. Current placement: <ol><li>" + mark1.innerText + "</li><li>" + mark2.innerText + "</li></ol>";
     return false;
 }
 
