@@ -97,6 +97,9 @@ const mark2 = document.getElementById('mark2');
 // collect the buttons
 const addMark1 = document.getElementById("addMark1");
 const addMark2 = document.getElementById("addMark2");
+// collect the alert list
+const alertList = document.querySelector("ul.flashes");
+var markAlert = document.querySelector("ul.flashes li#markAlert");
 
 // which should be 1 or 2 indicating which mark
 function updateMark(which) {
@@ -112,6 +115,18 @@ function updateMark(which) {
 // set on click functions to update marks
 addMark1.onclick = function() {updateMark(1)};
 addMark2.onclick = function() {updateMark(2)};
+
+// Validate marks before trimming or deleting
+function validateMarks() {
+    if (mark1.innerText < mark2.innerText)
+        return true;
+    if (!markAlert) {
+        alertList.innerHTML = '<li id="markAlert">ALERT</li>';
+        markAlert = document.querySelector("ul.flashes li#markAlert");
+    }
+    markAlert.innerHTML = "Error Trimming: Markers out of order. Mark 1 must come before Mark 2. Current placement: <ol><li>" + mark1.innerText + "</li><li>" + mark2.innerText + "</li></ol>";
+    return false;
+}
 
 // Video scrubbing and rewinding/fast-forwarding
 
