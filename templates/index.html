@@ -73,11 +73,9 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
             <li><button id="delete" disabled>Delete Selection</button></li>
         </ul>
     </nav>
-    <nav aria-label="Download">
-        <form method="POST" action="{{ url_for('download_file', filename=uploaded_video) }}">
-            <button id="download" class="large-button">Download {{uploaded_video}}</button>
-        </form>
-    </nav>
+    <form method="POST" action="{{ url_for('download_file', filename=uploaded_video) }}">
+        <button id="download" class="large-button">Download {{uploaded_video}}</button>
+    </form>
 </div>
 <script src="{{ url_for('static', filename='scripts/videoPlayer.js')  }}"></script>
 <script src="{{ url_for('static', filename='scripts/AVEVideoKeybinds.js')  }}"></script>
