@@ -29,12 +29,12 @@
             <div class="two-col">
                 <nav class="has-border" aria-labelledby="a11y-options">
                     <h2 id="a11y-options">Accessibility Options</h2>
-                    <span {% block box2editorattributes %}{% endblock %}>
-                        <!-- <input type="checkbox" id="shortcuts" name="shortcuts" value="shortcuts">
-                <label for="shortcuts"> Keyboard shortcuts</label> -->
-                    </span>
                     <form onsubmit="return updateDisplay();" name="a11y-form" method="POST" class="two-col-80-20">
                         <div>
+                            <span class="display-block">
+                                <input type="checkbox" id="shortcuts" name="shortcuts" value="shortcuts" checked {% block box2keyboardshortcuts %}{% endblock %}>
+                                <label for="shortcuts"> Keyboard shortcuts</label>
+                            </span>
                             <span class="display-block">
                                 <label for="color-scheme-select">Color Scheme</label>
                                 <select name="color-scheme-select" id="color-scheme-select">
