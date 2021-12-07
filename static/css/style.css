@@ -98,6 +98,14 @@ a:focus, a:hover {
 .small-screen {
   display: none;
 }
+footer {
+  margin-top: 1em;
+  text-align: center;
+  font-size: 0.8em;
+}
+footer p {
+  margin-top: 0;
+}
 
 /* Video progress bar */
 video {
