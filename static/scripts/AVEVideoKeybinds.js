@@ -2,7 +2,7 @@
 //change as desired. empty string is equivalent to Mousetrap.unbind() as it will just bind nothing.
 var ISMOUSETRAP = true;
 //video actions
-var togglePlayKey = "space";
+var togglePlayKey = "p";
 var saveKey = "ctrl+s";
 var snipKey = "ctrl+a"
 var deleteKey = "q";
