@@ -9,7 +9,6 @@ var deleteKey = "q";
 
 //markers
 var placeMarker = "o";
-var removeMarker = "p";
 var toggleMarkerGrab = "u";
 
 //scrubbing
@@ -39,7 +38,6 @@ function disableMousetrap() {
     Mousetrap.unbind(snipKey);
     Mousetrap.unbind(deleteKey);
     Mousetrap.unbind(placeMarker);
-    Mousetrap.unbind(removeMarker);
     Mousetrap.unbind(toggleMarkerGrab);
     Mousetrap.unbind(hopBack);
     Mousetrap.unbind(jumpBack);
@@ -48,6 +46,8 @@ function disableMousetrap() {
 
 //keybind go juice, this will all be moved into a function that is activated by a button in the nav
 function startMousetrap() {
+    console.log("starting mousetrap");
+    ISMOUSETRAP = "true";
     Mousetrap.bind(togglePlayKey, function () {
         togglePlay();
     });
