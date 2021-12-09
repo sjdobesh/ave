@@ -5,10 +5,8 @@ var ISMOUSETRAP = true;
 var togglePlayKey = "space";
 var saveKey = "ctrl+s";
 var snipKey = "ctrl+a"
-var undoKey = "ctrl+z";
 var goToHelp = "?";
 var deleteKey = "q";
-var mergeSegments = "shift+o";
 
 //markers
 var placeMarker = "o";
@@ -24,6 +22,11 @@ var jumpForward = ";";
 //emergency escape AVE keybinds incase user has screenreader conflicts!
 var fleeAVEKey = "shift+esc";
 
+// start keybinds if the video element exists
+if (document.getElementsByTagName("video")) {
+    startMousetrap();
+}
+
 //this is the unbinding function, it will stop mousetrap until something calls startMousetrap() again
 function disableMousetrap() {
     if (!ISMOUSETRAP) {
@@ -38,11 +41,10 @@ function disableMousetrap() {
     Mousetrap.unbind(undoKey);
     Mousetrap.unbind(goToHelp);
     Mousetrap.unbind(deleteKey);
-    Mousetrap.unbind(mergeSegments);
     Mousetrap.unbind(placeMarker);
     Mousetrap.unbind(removeMarker);
     Mousetrap.unbind(toggleMarkerGrab);
-    Mousetrap.unbind(hopback);
+    Mousetrap.unbind(hopBack);
     Mousetrap.unbind(jumpBack);
     Mousetrap.unbind(fleeAVEKey);
 }
@@ -61,20 +63,12 @@ function startMousetrap() {
         //save call here
     });
 
-    Mousetrap.bind(undoKey, function () {
-        //undo
-    });
-
     Mousetrap.bind(goToHelp, function () {
         //help!
     });
 
     Mousetrap.bind(deleteKey, function () {
         //YEET
-    });
-
-    Mousetrap.bind(mergeSegments, function () {
-        //merge function here
     });
 
     Mousetrap.bind(placeMarker, function () {
@@ -91,6 +85,7 @@ function startMousetrap() {
 
     Mousetrap.bind(fleeAVEKey, function () {
         disableMousetrap();
+        document.getElementById("shortcuts").checked = false;
     });
 
     //scrubbing
@@ -111,12 +106,10 @@ function startMousetrap() {
     });
 }
 
-startMousetrap();
-
 //this keybind is omnipotent as it reactivates mousetrap....but also uses mousetrap. so it probably shouldnt eat itself
-Mousetrap.bind("j k l", function () {
-    if (!ISMOUSETRAP) {
-        ISMOUSETRAP = !ISMOUSETRAP;
-        startMousetrap();
-    }
-});
+// Mousetrap.bind("j k l", function () {
+//     if (!ISMOUSETRAP) {
+//         ISMOUSETRAP = !ISMOUSETRAP;
+//         startMousetrap();
+//     }
+// });
