@@ -48,7 +48,6 @@ function disableMousetrap() {
 
 //keybind go juice, this will all be moved into a function that is activated by a button in the nav
 function startMousetrap() {
-    console.log("starting mousetrap");
     ISMOUSETRAP = "true";
     Mousetrap.bind(play, function () {
         togglePlay();
