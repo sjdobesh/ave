@@ -5,7 +5,6 @@ var ISMOUSETRAP = true;
 var togglePlayKey = "space";
 var saveKey = "ctrl+s";
 var snipKey = "ctrl+a"
-var goToHelp = "?";
 var deleteKey = "q";
 
 //markers
@@ -38,8 +37,6 @@ function disableMousetrap() {
     Mousetrap.unbind(togglePlayKey);
     Mousetrap.unbind(saveKey);
     Mousetrap.unbind(snipKey);
-    Mousetrap.unbind(undoKey);
-    Mousetrap.unbind(goToHelp);
     Mousetrap.unbind(deleteKey);
     Mousetrap.unbind(placeMarker);
     Mousetrap.unbind(removeMarker);
@@ -61,10 +58,6 @@ function startMousetrap() {
 
     Mousetrap.bind(saveKey, function () {
         //save call here
-    });
-
-    Mousetrap.bind(goToHelp, function () {
-        //help!
     });
 
     Mousetrap.bind(deleteKey, function () {
