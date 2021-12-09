@@ -37,9 +37,7 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
 {% block main %}
 
 <h2>{% if uploaded_video %}Video: {{uploaded_video}}{% else %}Upload Video{% endif %}</h2>
-{% if not uploaded_video %}
-<div style="display:none;">
-{% endif %}
+{% if uploaded_video %}
 <video id="videoPlayer" preload="metadata" tabindex="-1" disablePictureInPicture>
     <source src="{{ url_for('send_uploaded_file', filename=uploaded_video) }}" type="video/mp4">
 </video>
@@ -81,8 +79,7 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
 </div>
 <script src="{{ url_for('static', filename='scripts/videoPlayer.js')  }}"></script>
 <script src="{{ url_for('static', filename='scripts/AVEVideoKeybinds.js')  }}"></script>
-{% if not uploaded_video %}
-</div>
+{% else %}
 <script src="{{ url_for('static', filename='scripts/videoUploadForm.js')  }}"></script>
 <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload') }}">
     <div>
