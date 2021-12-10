@@ -91,7 +91,7 @@ function skipAhead(event) {
 
 var playingSelection = false
 function playSelection() {
-    if (validatMarks()) {
+    if (validateMarks("Play Selection")) {
       // set start at first mark
       video.currentTime = mark1
       progressBar.value = mark1;
