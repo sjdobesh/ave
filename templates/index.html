@@ -51,9 +51,13 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
 
     <div class="time"> <!--aria-live="polite"-->
         <!-- TODO accessible label for video progress/duration? -->
-        <time id="time-elapsed">00:00.00</time>
-        <span> / </span>
-        <time id="duration">00:00.00</time>
+        <span>
+            <time id="time-elapsed">00:00.00</time>
+            /
+            <time id="duration">00:00.00</time>
+        </span>
+        <span class="mark">Mark 1: <time id="mark1">00:00.00</time></span>
+        <span class="mark">Mark 2: <time id="mark2">00:00.00</time></span>
     </div>
 
     <nav aria-label="Playhead">
@@ -68,9 +72,23 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
     </nav>
     <nav aria-label="Edit">
         <ul class="inline">
+            <li><button id="addMark1">Add Mark 1</button></li>
+            <li><button id="addMark2">Add Mark 2</button></li>
             <li><button id="playSelection" disabled>Play Selection</button></li>
-            <li><button id="trim" disabled>Trim to Selection</button></li>
-            <li><button id="delete" disabled>Delete Selection</button></li>
+            <li>
+                <form method="POST" onsubmit="return validateMarks('Trim');" action="{{ url_for('trim', filename=uploaded_video) }}">
+                    <input type="hidden" name="trimMark1" id="trimMark1" value="00:00.00">
+                    <input type="hidden" name="trimMark2" id="trimMark2" value="00:00.00">
+                    <button type="submit" id="trim">Trim to Selection</button>
+                </form>
+            </li>
+            <li>
+                <form method="POST" onsubmit="return validateMarks('Delete');" action="{{ url_for('delete', filename=uploaded_video) }}">
+                    <input type="hidden" name="deleteMark1" id="deleteMark1" value="00:00.00">
+                    <input type="hidden" name="deleteMark2" id="deleteMark2" value="00:00.00">
+                    <button type="submit" id="delete">Delete Selection</button>
+                </form>
+            </li>
         </ul>
     </nav>
     <form method="POST" action="{{ url_for('download_file', filename=uploaded_video) }}">
