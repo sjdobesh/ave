@@ -64,6 +64,7 @@ def trim(filename):
     video_clip = video_clip.subclip(start, stop)
     video_clip.write_videofile(path_filename)  # defaults to rewriting the file
     video_clip.close()
+    flash("Video trimmed to selection")
     return render_template('index.html', uploaded_video=escape(filename))
 
 
@@ -81,4 +82,5 @@ def delete(filename):
     video_clip = video_clip.set_end(stop)
     video_clip.write_videofile(path_filename)  # defaults to rewriting the file
     video_clip.close()
+    flash("Selection deleted from video")
     return render_template('index.html', uploaded_video=escape(filename))
