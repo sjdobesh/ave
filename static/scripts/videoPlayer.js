@@ -96,7 +96,7 @@ function playSelection() {
         video.currentTime = mark1
         progressBar.value = mark1;
         // set a boolean indicating play selection mode
-        playingSelection = true // need to update move play head? or skip ahead? not sure best spot
+        playingSelection = true; // need to update move play head? or skip ahead? not sure best spot
     }
 }
 
