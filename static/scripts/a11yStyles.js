@@ -1,10 +1,16 @@
-function updateDisplay() {
+function updateDisplay(shortcuts = false) {
     let form = document.forms["a11y-form"];
     let body = document.getElementsByTagName("body")[0];
 
     setColorScheme(form["color-scheme-select"], body);
-
     setFontFamily(form["font-select"], body);
+
+    if (!form["shortcuts"].disabled) {
+        if (form["shortcuts"].checked)
+            startMousetrap();
+        else
+            disableMousetrap();
+    }
 
     return false; //don't submit form
 }
