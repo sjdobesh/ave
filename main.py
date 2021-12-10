@@ -55,19 +55,18 @@ def about():
 
 # take in two markers and the filename to edit
 # trims video to between start and stop.
-# def trim(start, stop, filename):
-@app.route('/trim/<filename>/<start>/<stop>', methods=['POST'])
-def trim(filename, start, stop):
-    start = int(start)
-    stop = int(stop)
-    print("start:", start, type(start))
-    print("stop: ", stop, type(stop))
-    path_filename = app.config['UPLOADED_VIDEOS_DEST'] + '/' + filename
-    video_clip = VideoFileClip(path_filename)
+@app.route('/trim/<filename>', methods=['POST'])
+def trim(filename):
+    start = request.form.get("trimMark1")
+    stop = request.form.get("trimMark2")
+    print("start: " + str(start))
+    print("stop: " + str(stop))
+    # path_filename = app.config['UPLOADED_VIDEOS_DEST'] + '/' + filename
+    # video_clip = VideoFileClip(path_filename)
+    # # video_clip = video_clip.subclip(start, stop)
     # video_clip = video_clip.subclip(start, stop)
-    video_clip = video_clip.subclip(start, stop)
-    video_clip.write_videofile(path_filename)  # defaults to rewriting the file
-    video_clip.close()
+    # video_clip.write_videofile(path_filename)  # defaults to rewriting the file
+    # video_clip.close()
     return render_template('index.html', uploaded_video=escape(filename))
 
 

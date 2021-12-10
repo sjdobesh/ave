@@ -79,12 +79,16 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
             <li><button id="addMark2">Add Mark 2</button></li>
             <li><button id="playSelection" disabled>Play Selection</button></li>
             <li>
-                <form method="POST" onsubmit="return validateMarks('Trim');" action="{{ url_for('trim', filename=uploaded_video, start=mark1, stop=5) }}">
+                <form method="POST" onsubmit="return validateMarks('Trim');" action="{{ url_for('trim', filename=uploaded_video) }}">
+                    <input type="hidden" name="trimMark1" id="trimMark1" value="00:00.00">
+                    <input type="hidden" name="trimMark2" id="trimMark2" value="00:00.00">
                     <button type="submit" id="trim">Trim to Selection</button>
                 </form>
             </li>
             <li>
                 <form method="POST" onsubmit="return validateMarks('Delete');" action=""> <!-- TODO add action -->
+                    <input type="hidden" name="deleteMark1" id="trimMark1" value="00:00.00">
+                    <input type="hidden" name="deleteMark2" id="trimMark2" value="00:00.00">
                     <button type="submit" id="delete" disabled>Delete Selection</button>
                 </form>
             </li>

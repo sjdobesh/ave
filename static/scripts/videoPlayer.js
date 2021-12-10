@@ -118,8 +118,17 @@ addMark2.onclick = function() {updateMark(2)};
 
 // Validate marks before trimming or deleting
 function validateMarks(action = "") {
-    if (mark1.innerText < mark2.innerText)
+    if (mark1.innerText < mark2.innerText) {
+        // Set hidden inputs
+        if (action == "Trim") {
+            document.getElementById("trimMark1").value = mark1.innerText;
+            document.getElementById("trimMark2").value = mark2.innerText;
+        } else if (action == "Delete") {
+            document.getElementById("deleteMark1").value = mark1.innerText;
+            document.getElementById("deleteMark2").value = mark2.innerText;
+        }
         return true;
+    }
     if (!markAlert) {
         alertList.innerHTML = '<li id="markAlert">ALERT</li>';
         markAlert = document.querySelector("ul.flashes li#markAlert");
