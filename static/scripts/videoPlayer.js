@@ -88,7 +88,8 @@ function skipAhead(event) {
     progressBar.value = skipTo;
     seek.value = skipTo;
 }
-
+const playSelectionButton = document.getElementById('playSelection');
+playSelectionButton.onclick = function() {playSelection()};
 var playingSelection = false
 function playSelection() {
     if (validateMarks("Play Selection")) {
@@ -129,6 +130,7 @@ addMark2.onclick = function() {updateMark(2)};
 
 // Validate marks before trimming or deleting
 function validateMarks(action = "") {
+    console.log(action);
     if (mark1.innerText < mark2.innerText) {
         // Set hidden inputs
         if (action == "Trim") {
