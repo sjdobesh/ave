@@ -10,6 +10,7 @@ if (videoWorks) {
 
 // toggle between playing and pausing
 function togglePlay() {
+    playStart = Date.now();
     const playButton = document.getElementById("playButton")
     if (video.paused || video.ended) {
         video.play();
@@ -90,35 +91,31 @@ function skipAhead(event) {
 }
 const playSelectionButton = document.getElementById('playSelection');
 playSelectionButton.onclick = function() {playSelection()};
-var playingSelection = false;
+var playSelectionStart = Date.now();
 function playSelection() {
     if (validateMarks("Play Selection")) {
         // if video is playing, pause real quick so togglePlay() works as intended
         if (!video.paused && !video.ended) {
             video.pause();
         }
-        // set start at first mark
+        // set start at first mark, play, and set delayed pause for this specific playSelection instance
         seek.value = mark1time.toFixed(2);
         progressBar.value = mark1time.toFixed(2);
         video.currentTime = mark1time;
-        togglePlay();
+        playStart = Date.now();
         let timeToWait = (mark2time - mark1time).toFixed(2) * 1000;
-        console.log("wait this long: " + timeToWait);
-        setTimeout(() => { togglePlay(); }, timeToWait);
-        // set a boolean indicating play selection mode
-        playingSelection = true; // need to update move play head? or skip ahead? not sure best spot
+        togglePlay();
+        endPlaySelection(timeToWait, playStart);
     }
 }
-// function togglePlay() {
-//     const playButton = document.getElementById("playButton")
-//     if (video.paused || video.ended) {
-//         video.play();
-//         playButton.innerText = "Pause";
-//     } else {
-//         video.pause();
-//         playButton.innerText = "Play";
-//     }
-// }
+// waits and then ends "play selection" at mark2 time. only ends if we are still playing from original playSelection call
+function endPlaySelection(timeToWait, currentPlayStart) {
+    setTimeout(() => {
+        if (playStart == currentPlayStart) {
+            togglePlay();
+        }
+    }, timeToWait);
+}
 
 // SETTING MARKS //
 
@@ -154,7 +151,6 @@ addMark2.onclick = function() {updateMark(2)};
 
 // Validate marks before trimming or deleting
 function validateMarks(action = "") {
-    console.log(action);
     if (mark1.innerText < mark2.innerText) {
         // Set hidden inputs
         if (action == "Trim") {
@@ -185,7 +181,6 @@ function movePlayhead(numFrames) {
     video.currentTime += numFrames;
     progressBar.value = video.currentTime;
     const time = formatTime(video.currentTime.toFixed(2));
-    console.log(time);
 }
 
 const SMALL_STEP = 1; // Amount of seconds for a scrub
