@@ -86,10 +86,10 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
                 </form>
             </li>
             <li>
-                <form method="POST" onsubmit="return validateMarks('Delete');" action=""> <!-- TODO add action -->
-                    <input type="hidden" name="deleteMark1" id="trimMark1" value="00:00.00">
-                    <input type="hidden" name="deleteMark2" id="trimMark2" value="00:00.00">
-                    <button type="submit" id="delete" disabled>Delete Selection</button>
+                <form method="POST" onsubmit="return validateMarks('Delete');" action="{{ url_for('delete', filename=uploaded_video) }}"> <!-- TODO add action -->
+                    <input type="hidden" name="deleteMark1" id="deleteMark1" value="00:00.00">
+                    <input type="hidden" name="deleteMark2" id="deleteMark2" value="00:00.00">
+                    <button type="submit" id="delete">Delete Selection</button>
                 </form>
             </li>
         </ul>
