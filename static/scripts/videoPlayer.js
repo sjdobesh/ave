@@ -90,7 +90,7 @@ function skipAhead(event) {
 }
 const playSelectionButton = document.getElementById('playSelection');
 playSelectionButton.onclick = function() {playSelection()};
-var playingSelection = false
+var playingSelection = false;
 function playSelection() {
     if (validateMarks("Play Selection")) {
         // set start at first mark
