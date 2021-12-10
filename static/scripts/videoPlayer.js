@@ -128,6 +128,8 @@ var mark2time = video.currentTime;
 // collect the buttons
 const addMark1 = document.getElementById("addMark1");
 const addMark2 = document.getElementById("addMark2");
+const trimButton = document.getElementById("trim");
+const deleteButton = document.getElementById("delete");
 // collect the alert list
 const alertList = document.querySelector("ul.flashes");
 var markAlert = document.querySelector("ul.flashes li#markAlert");
@@ -146,6 +148,8 @@ function updateMark(which) {
     }
     // Enable/disabled play selection button based on mark validity
     playSelectionButton.disabled = !(mark1time < mark2time);
+    trimButton.disabled = !(mark1time < mark2time);
+    deleteButton.disabled = !(mark1time < mark2time);
 }
 // set on click functions to update marks
 addMark1.onclick = function() {updateMark(1)};
