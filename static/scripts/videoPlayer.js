@@ -93,15 +93,32 @@ playSelectionButton.onclick = function() {playSelection()};
 var playingSelection = false;
 function playSelection() {
     if (validateMarks("Play Selection")) {
+        // if video is playing, pause real quick so togglePlay() works as intended
+        if (!video.paused && !video.ended) {
+            video.pause();
+        }
         // set start at first mark
         seek.value = mark1time.toFixed(2);
         progressBar.value = mark1time.toFixed(2);
         video.currentTime = mark1time;
         togglePlay();
+        let timeToWait = (mark2time - mark1time).toFixed(2) * 1000;
+        console.log("wait this long: " + timeToWait);
+        setTimeout(() => { togglePlay(); }, timeToWait);
         // set a boolean indicating play selection mode
         playingSelection = true; // need to update move play head? or skip ahead? not sure best spot
     }
 }
+// function togglePlay() {
+//     const playButton = document.getElementById("playButton")
+//     if (video.paused || video.ended) {
+//         video.play();
+//         playButton.innerText = "Pause";
+//     } else {
+//         video.pause();
+//         playButton.innerText = "Play";
+//     }
+// }
 
 // SETTING MARKS //
 
