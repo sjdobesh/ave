@@ -4,12 +4,13 @@ var ISMOUSETRAP = true;
 //video actions
 var play = "p";
 var download = "ctrl+s";
-var trim = "ctrl+a"
-var deleteSelection = "q";
+var trim = "t"
+var deleteSelection = "d";
 
 //markers
-var placeMarker1 = "o";
-var placeMarker2 = "u";
+var placeMarker1 = "u";
+var placeMarker2 = "i";
+var playSelectionKey = "o";
 
 //scrubbing
 var jumpBack = "j";
@@ -39,6 +40,7 @@ function disableMousetrap() {
     Mousetrap.unbind(deleteSelection);
     Mousetrap.unbind(placeMarker1);
     Mousetrap.unbind(placeMarker2);
+    Mousetrap.unbind(playSelectionKey);
     Mousetrap.unbind(hopBack);
     Mousetrap.unbind(jumpBack);
     Mousetrap.unbind(hopForward);
@@ -66,15 +68,15 @@ function startMousetrap() {
     });
 
     Mousetrap.bind(placeMarker1, function () {
-        // document.getElementById["addMark1"].click();
+        document.getElementById["addMark1"].click();
     });
 
     Mousetrap.bind(placeMarker2, function () {
-        // document.getElementById["addMark2"].click();
+        document.getElementById["addMark2"].click();
     });
 
-    Mousetrap.bind(playSelection, function () {
-        // document.getElementById["playSelection"].click();
+    Mousetrap.bind(playSelectionKey, function () {
+        document.getElementById["playSelection"].click();
     });
 
     Mousetrap.bind(fleeAVE, function () {
