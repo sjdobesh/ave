@@ -77,7 +77,7 @@ Setting an alert role didn't seem to help; should the alerts go at the top of th
         <ul class="inline">
             <li><button id="addMark1">Add Mark 1</button></li>
             <li><button id="addMark2">Add Mark 2</button></li>
-            <li><button id="playSelection" disabled>Play Selection</button></li>
+            <li><button id="playSelection">Play Selection</button></li>
             <li>
                 <form method="POST" onsubmit="return validateMarks('Trim');" action="{{ url_for('trim', filename=uploaded_video) }}">
                     <input type="hidden" name="trimMark1" id="trimMark1" value="00:00.00">
