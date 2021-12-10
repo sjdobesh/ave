@@ -94,8 +94,10 @@ var playingSelection = false
 function playSelection() {
     if (validateMarks("Play Selection")) {
         // set start at first mark
-        video.currentTime = mark1;
-        progressBar.value = mark1;
+        seek.value = mark1time.toFixed(2);
+        progressBar.value = mark1time.toFixed(2);
+        video.currentTime = mark1time;
+        togglePlay();
         // set a boolean indicating play selection mode
         playingSelection = true; // need to update move play head? or skip ahead? not sure best spot
     }
@@ -106,6 +108,9 @@ function playSelection() {
 // collect the labels from the document
 const mark1 = document.getElementById('mark1');
 const mark2 = document.getElementById('mark2');
+// collect the actual timings
+var mark1time = video.currentTime;
+var mark2time = video.currentTime;
 // collect the buttons
 const addMark1 = document.getElementById("addMark1");
 const addMark2 = document.getElementById("addMark2");
@@ -119,8 +124,10 @@ function updateMark(which) {
     const timeAsText = `${time.minutes}:${time.seconds}.${time.milliseconds}`;
     // using ternary with arg to decide which mark we are setting
     if (which == 1) {
+        mark1time = video.currentTime;
         mark1.innerText = timeAsText;
     } else {
+        mark2time = video.currentTime;
         mark2.innerText = timeAsText;
     }
 }
