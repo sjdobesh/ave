@@ -56,27 +56,27 @@ function startMousetrap() {
     });
 
     Mousetrap.bind(trim, function () {
-        document.getElementById["trim"].click();
+        document.getElementById("trim").click();
     });
 
     Mousetrap.bind(download, function () {
-        document.getElementById["download"].click();
+        document.getElementById("download").click();
     });
 
     Mousetrap.bind(deleteSelection, function () {
-        document.getElementById["delete"].click();
+        document.getElementById("delete").click();
     });
 
     Mousetrap.bind(placeMarker1, function () {
-        document.getElementById["addMark1"].click();
+        document.getElementById("addMark1").click();
     });
 
     Mousetrap.bind(placeMarker2, function () {
-        document.getElementById["addMark2"].click();
+        document.getElementById("addMark2").click();
     });
 
     Mousetrap.bind(playSelectionKey, function () {
-        document.getElementById["playSelection"].click();
+        document.getElementById("playSelection").click();
     });
 
     Mousetrap.bind(fleeAVE, function () {
