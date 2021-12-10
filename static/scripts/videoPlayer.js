@@ -89,6 +89,16 @@ function skipAhead(event) {
     seek.value = skipTo;
 }
 
+function playSelection() {
+    if (validatMarks()) {
+      // set start at first mark
+      video.currentTime = mark1
+      progressBar.value = mark1;
+      // set a boolean indicating play selection mode
+      const playingSelection = true // need to update move play head? or skip ahead? not sure best spot
+    }
+}
+
 // SETTING MARKS //
 
 // collect the labels from the document
