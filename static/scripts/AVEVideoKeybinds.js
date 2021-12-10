@@ -3,7 +3,7 @@
 var ISMOUSETRAP = true;
 //video actions
 var play = "p";
-var download = "ctrl+s";
+var download = "s";
 var trim = "t"
 var deleteSelection = "d";
 
