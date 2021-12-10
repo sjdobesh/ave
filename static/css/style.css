@@ -20,11 +20,22 @@
   grid-template-columns: 8fr 2fr;
   column-gap: .5em;
 }
-.padding-10px {
-  padding: 10px;
-}
 .margin-top-02-em {
   margin-top: 0.2em;
+}
+header .has-border {
+  padding: 0 1em 1em 1em;
+}
+header .has-border h2 {
+  font-size: .8em;
+  margin-top: .2em;
+  margin-bottom: .4em;
+}
+header .has-border ol {
+  margin: 0;
+}
+header .has-border ol, header .has-border ul {
+  padding-left: 1em;
 }
 
 /* Menu Stylings */
@@ -60,7 +71,7 @@ ul.inline li {
 }
 
 /* Button and Form Stylings */
-button, select, input[type=submit] {
+button, select, input[type=submit], input[type="file"] {
   cursor: pointer;
 }
 button:disabled {
@@ -89,6 +100,14 @@ a:focus, a:hover {
 }
 .small-screen {
   display: none;
+}
+footer {
+  margin-top: 1em;
+  text-align: center;
+  font-size: 0.8em;
+}
+footer p {
+  margin-top: 0;
 }
 
 /* Video progress bar */
@@ -166,9 +185,6 @@ th, td {
   #wrapper {
     width: 100%;
   }
-  .two-col div.has-border {
-    padding-left: 0;
-  }
   .two-col-80-20 {
     grid-template-columns: 1fr;
   }
@@ -179,6 +195,9 @@ th, td {
   }
   .has-border {
     border-width: 0;
+  }
+  nav.has-border {
+    padding-bottom: 0;
   }
   .padding-10px {
     padding: 0px;
