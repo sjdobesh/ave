@@ -94,7 +94,7 @@ var playingSelection = false
 function playSelection() {
     if (validateMarks("Play Selection")) {
         // set start at first mark
-        video.currentTime = mark1
+        video.currentTime = mark1;
         progressBar.value = mark1;
         // set a boolean indicating play selection mode
         playingSelection = true; // need to update move play head? or skip ahead? not sure best spot
