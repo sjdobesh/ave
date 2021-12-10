@@ -144,6 +144,8 @@ function updateMark(which) {
         mark2time = video.currentTime;
         mark2.innerText = timeAsText;
     }
+    // Enable/disabled play selection button based on mark validity
+    playSelectionButton.disabled = !(mark1time < mark2time);
 }
 // set on click functions to update marks
 addMark1.onclick = function() {updateMark(1)};
